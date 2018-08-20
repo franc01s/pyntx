@@ -7,25 +7,19 @@ from addict import Dict
 import urllib3
 import time
 
-# NTXPRISMHOST = '192.168.243.100:9440' #PE
-NTXPRISMCENTRAL = 'its-prism-central.swatchgroup.net:9440'  # PC LAB
-NTXPRISMELEMENT = 'ntxchbi009:9440'  # PC LAB
-# NTXPRISMHOST = '10.236.34.24:9440' #PE VMWARE
-# NTXPRISMHOST = '10.138.78.88:9440'  # PE element AHV
-# NTXPRISMHOST = '10.236.34.22:9440' # element ESX
+NTXPRISMCENTRAL = 'its-prism-central.swatchgroup.net:9440'
 NTXBASEURL3 = 'https://{prismhost}/api/nutanix/{version}'.format(prismhost=NTXPRISMCENTRAL, version='v3')
-NTXBASEURL2 = 'https://{prismhost}/api/nutanix/{version}'.format(prismhost=NTXPRISMELEMENT, version='v2.0')
-
-
-# PASSWORD = 'Nutanix/4u2017'
+NTXBASEURL2 = 'https://{prismhost}/api/nutanix/{version}'.format(prismhost=NTXPRISMCENTRAL, version='v2.0')
+PROTECTIONDOMAIN = 'PD-NTXCHBI009-TO-NTXCHGR010-GOLD'
 
 # Disable Insecure Rquests Warning globally
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+
 def checkpassword(user, password):
     urlrun = '{baseurl}/{api}'.format(baseurl=NTXBASEURL3,
                                       api='services/xfit/status')
-    response = get(urlrun, auth=(user,password), verify=False)
+    response = get(urlrun, auth=(user, password), verify=False)
 
     return response.ok
 
@@ -68,7 +62,6 @@ class Ntxvms:
         # VMs as dictionary
         self.vms = {}
 
-
     def refresh(self):
         self.vms.clear()
         print('Start refresh VMs')
@@ -79,7 +72,8 @@ class Ntxvms:
             self.vms.update(self.getclustervms(clusterip, clustername, clusterloc))
 
     def gettask(self, vm):
-        urlrun = 'https://{clusterip}:9440/api/nutanix/v2.0/tasks/{uuid}'.format(clusterip=vm.clusterip, uuid=vm.taskuuid)
+        urlrun = 'https://{clusterip}:9440/api/nutanix/v2.0/tasks/{uuid}'.format(clusterip=vm.clusterip,
+                                                                                 uuid=vm.taskuuid)
 
         response = self.session.get(urlrun)
         if response.status_code < 400:
@@ -134,22 +128,16 @@ class Ntxvms:
         vm = [vm for k, vm in self.vms.items() if vmnamepattern in vm.name]
         return vm
 
-    def getdisks(self, session, clustername, disks):
-        Vmdisk = namedtuple('Vmdisk', 'uuid index path')
-        vmdisks = []
+    def getdiskuuid(self, vm, index):
+        disks = vm.vm_disk_info
         for disk in disks:
-            if disk.disk_address.device_bus == 'scsi':
-                url = 'https://{}:9440/api/nutanix/v2.0/virtual_disks/{}'.format(clustername,
-                                                                                 disk.disk_address.vmdisk_uuid)
-                resp = session.get(url, verify=False)
-                diskdetail = Dict(resp.json())
-                vmdisk = Vmdisk(diskdetail.uuid, disk.disk_address.device_index, diskdetail.nutanix_nfsfile_path)
-                vmdisks.append(vmdisk)
-        return vmdisks
+            if disk.disk_address.device_bus == 'scsi' and disk.disk_address.device_index == index:
+                return (disk.disk_address.vmdisk_uuid, disk.storage_container_uuid)
+        return None
 
     def getvmsnapsnots(self, vmnamepattern):
         vms = self.getvmsbyname(vmnamepattern)
-        if len(vms) ==1:
+        if len(vms) == 1:
             # First vm of the match
             vm = vms[0]
             payload = {'vm_uuid': vm.uuid}
@@ -167,11 +155,10 @@ class Ntxvms:
         return []
 
     def delsnapsnots(self, clusterip, uuid):
-            # First vm of the match
+        # First vm of the match
         url = 'https://{clusterip}:9440/api/nutanix/v2.0/snapshots/{uuid}'.format(clusterip=clusterip, uuid=uuid)
         resp = self.session.delete(url, verify=False)
         return resp.ok
-
 
     def getsnapsnots(self, clusterip):
         url = 'https://{}:9440/api/nutanix/v2.0/snapshots'.format(clusterip)
@@ -198,15 +185,53 @@ class Ntxvms:
         return resp.ok
 
     def updatevm(self, vm, data):
-        '''
-        data = {
-            "description": "testtesttest"
-        }
-        '''
         url = 'https://{}:9440/api/nutanix/v2.0/vms/{}'.format(vm.clusterip, vm.uuid)
         resp = self.session.put(url, verify=False, json=data)
         if resp.ok:
             vm.taskuuid = resp.json()['task_uuid']
+
+        return resp.ok
+
+    def clonevm(self, vm, data):
+        url = 'https://{}:9440/api/nutanix/v2.0/vms/{}/clone'.format(vm.clusterip, vm.uuid)
+        resp = self.session.post(url, verify=False, json=data)
+        if resp.ok:
+            vm.taskuuid = resp.json()['task_uuid']
+
+        return resp.ok
+
+    def protectiondomainsaddvm(self, vm):
+        data = {
+            "uuids": [
+                vm.uuid
+            ]
+        }
+
+        url = 'https://{}:9440/api/nutanix/v2.0/protection_domains/{}/protect_vms'.format(vm.clusterip,
+                                                                                          PROTECTIONDOMAIN)
+        resp = self.session.post(url, verify=False, json=data)
+
+        return resp.ok
+
+    def createimage(self, vm, index):
+        vmdisk_uuid, storage_container_uuid = self.getdiskuuid(vm, index)
+        data = {
+            "spec": {
+                "name": vm.name,
+                "resources": {
+                    "image_type": "DISK_IMAGE",
+                    "source_uri": "nfs://{clusterip}/{clustername}-SSD-1/.acropolis/vmdisk/{vmiskuuid}".format(
+                        clusterip=vm.clusterip, clustername=vm.clustername, vmiskuuid=vmdisk_uuid)
+                },
+            },
+            "api_version": "3.1",
+            "metadata": {
+                "kind": "image",
+                "name": vm.name
+            }
+        }
+        url = '{baseurl}/{api}'.format(baseurl=NTXBASEURL3, api='images')
+        resp = self.session.post(url, verify=False, json=data)
 
         return resp.ok
 
@@ -413,7 +438,8 @@ class Ntxhosts:
         return [k for k, host in self.hosts.items() if hostname in host.hostname]
 
     def gethostsaffinity(self, gputype, loc):
-        return [k for k, host in self.hosts.items() if host.hostgpus != None and gputype in host.hostgpus and host.hostloc == loc]
+        return [k for k, host in self.hosts.items() if
+                host.hostgpus != None and gputype in host.hostgpus and host.hostloc == loc]
 
     def gethostgpus(self, uuid):
         host = self.hosts.get(uuid, None)
