@@ -2,3 +2,4 @@ console-menu
 requests
 addict
 python-dotenv
+marshmallow

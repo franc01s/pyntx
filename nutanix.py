@@ -2,8 +2,9 @@ from requests import Session, Response, get
 from requests.auth import HTTPBasicAuth
 import json, os
 from collections import namedtuple
-from enum import Enum
+from marshmallow import Schema, fields, pprint
 from addict import Dict
+import datetime as dt
 import urllib3
 import time
 
@@ -16,60 +17,127 @@ PROTECTIONDOMAIN = 'PD-NTXCHBI009-TO-NTXCHGR010-GOLD'
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
-def checkpassword(user, password):
-    urlrun = '{baseurl}/{api}'.format(baseurl=NTXBASEURL3,
-                                      api='services/xfit/status')
-    response = get(urlrun, auth=(user, password), verify=False)
+class Cluster():
+    def __init__(self, clustername, clusteruuid, clusterip, clustertype, clusterloc):
+        self.clustername = clustername
+        self.clusterip = clusterip
+        self.clusteruuid = clusteruuid
+        self.clustertype = clustertype
+        self.clusterloc = clusterloc
 
+    def __repr__(self):
+        return self.clustername
+
+
+class Clusterschema(Schema):
+    clustername = fields.String(required=True)
+    clusterip = fields.String(required=True)
+    clusteruuid = fields.String(required=True)
+    clustertype = fields.String(required=True)
+    clusterloc = fields.String(required=True)
+
+
+def checkpassword(user, password):
+    urlrun = '{baseurl}/{api}'.format(baseurl=NTXBASEURL3, api='services/xfit/status')
+    response = get(urlrun, auth=(user, password), verify=False)
     return response.ok
 
 
-def getclusters(session, filters):
-    urlrun = '{baseurl}/{api}'.format(baseurl=NTXBASEURL3,
-                                      api='clusters/list')
-    data = {"kind": "cluster"}
-    response = session.post(urlrun, json=data)
-    clusters = Dict(response.json())
-    clusterlist = []
-    for cluster in clusters.entities:
-        clusterip = cluster.spec.resources.network.external_ip
-        clustername = cluster.spec.name
-        clusteruuid = cluster.metadata.uuid
+class Ntxclusters:
+    def __init__(self, user=None, password=None, sslverify=False, filters=None, initialrefresh=True):
+        self.user = user
+        self.password = password
+        self.filters = filters
+        self.sslverify = sslverify
 
-        # Check for a valid cluster
-        if clusterip != {}:
-            # set location representing char 6 and 7 of the cluster name
-            clusterloc = clustername[5:7]
-            # Apply input filters
-            if filters == None or clustername.lower() in [filter.lower() for filter in filters]:
-                for clusternode in cluster.status.resources.nodes.hypervisor_server_list:
-                    clustertype = clusternode.type
-                    break
-                clusterlist.append((clustername, clusteruuid, clusterip, clustertype, clusterloc))
-    return clusterlist
+        # All Clusters as list of Cluster class
+        self.allclusters = []
+
+        self.__session()
+        if initialrefresh:
+            self.refreshclusters(newconn=True)
+
+    def __session(self):
+        self.session = Session()
+        self.session.auth = HTTPBasicAuth(self.user, self.password)
+        self.session.headers.update({'content-type': 'application/json'})
+        self.session.headers.update({'Accept': 'application/json'})
+        self.session.verify = self.sslverify
+
+    def refreshclusters(self, newconn=False):
+
+        self.allclusters.clear()
+
+        if newconn:
+            self.__session()
+
+        urlrun = '{baseurl}/{api}'.format(baseurl=NTXBASEURL3,
+                                          api='clusters/list')
+        data = {"kind": "cluster"}
+        response = self.session.post(urlrun, json=data)
+        clusters = Dict(response.json())
+        for cluster in clusters.entities:
+            clusterip = cluster.spec.resources.network.external_ip
+            clustername = cluster.spec.name
+            clusteruuid = cluster.metadata.uuid
+
+            # Check for a valid cluster
+            if clusterip != {}:
+                # set location representing char 6 and 7 of the cluster name
+                clusterloc = clustername[5:7]
+                # Apply input filters
+                if self.filters == None or clustername.lower() in [filter.lower() for filter in self.filters]:
+                    for clusternode in cluster.status.resources.nodes.hypervisor_server_list:
+                        clustertype = clusternode.type
+                        break
+                    cluster = Cluster(clustername, clusteruuid, clusterip, clustertype, clusterloc)
+                    self.allclusters.append(cluster)
+        return response.ok
+
+    def getclusterbyname(self, clustername):
+        cluster = [cluster for cluster in self.allclusters if clustername == cluster.clustername]
+        if len(cluster)==1:
+            return cluster[0]
+        return None
+
+    @property
+    def getcluster(self):
+        return self.allclusters
 
 
 class Ntxvms:
 
-    def __init__(self, user=None, password=None, sslverify=False, filters=None):
-        self.session = Session()
-        self.session.auth = HTTPBasicAuth(user, password)
-        self.session.headers.update({'content-type': 'application/json'})
-        self.session.headers.update({'Accept': 'application/json'})
-        self.session.verify = sslverify
+    def __init__(self, clusters, user=None, password=None, sslverify=False, initialrefresh=True):
+        self.user = user
+        self.password = password
+        self.sslverify = sslverify
 
-        self.filters = filters
+        self.clusters = clusters
+
         # VMs as dictionary
         self.vms = {}
 
-    def refresh(self):
-        self.vms.clear()
-        print('Start refresh VMs')
-        self.clusters = getclusters(self.session, self.filters)
+        self.__newsession()
+        if initialrefresh:
+            self.refresh(newconn=True)
 
-        for clustername, clusteruuid, clusterip, clustertype, clusterloc in self.clusters:
-            print('get VMs on {}'.format(clustername))
-            self.vms.update(self.getclustervms(clusterip, clustername, clusterloc))
+    def __newsession(self):
+        self.session = Session()
+        self.session.auth = HTTPBasicAuth(self.user, self.password)
+        self.session.headers.update({'content-type': 'application/json'})
+        self.session.headers.update({'Accept': 'application/json'})
+        self.session.verify = self.sslverify
+
+    def refresh(self, newconn=False):
+        self.vms.clear()
+        if newconn:
+            self.__newsession()
+        print('Start refresh VMs')
+
+        for cluster in self.clusters.allclusters:
+            print('get VMs on {}'.format(cluster.clustername))
+            self.vms.update(self.pullclustervms(clustername=cluster.clustername, clusterloc=cluster.clusterloc,
+                                                clusterip=cluster.clusterip))
 
     def gettask(self, vm):
         urlrun = 'https://{clusterip}:9440/api/nutanix/v2.0/tasks/{uuid}'.format(clusterip=vm.clusterip,
@@ -106,7 +174,7 @@ class Ntxvms:
             hostlist.append(hostcluster)
         return hostlist
 
-    def getclustervms(self, clusterip, clustername, clusterloc):
+    def pullclustervms(self, clusterip, clustername, clusterloc):
         payload = {'include_vm_disk_config': 'true'}
         urlbase = 'https://{}:9440/api/nutanix/v2.0/vms'.format(clusterip)
         vmsraw = self.session.get(urlbase, params=payload)
@@ -184,7 +252,10 @@ class Ntxvms:
 
         return resp.ok
 
-    def updatevm(self, vm, data):
+    def updatevm(self, vm, data, newsession=True):
+        if newsession:
+            self.__newsession()
+
         url = 'https://{}:9440/api/nutanix/v2.0/vms/{}'.format(vm.clusterip, vm.uuid)
         resp = self.session.put(url, verify=False, json=data)
         if resp.ok:
@@ -192,7 +263,10 @@ class Ntxvms:
 
         return resp.ok
 
-    def clonevm(self, vm, data):
+    def clonevm(self, vm, data, newsession=True):
+        if newsession:
+            self.__newsession()
+
         url = 'https://{}:9440/api/nutanix/v2.0/vms/{}/clone'.format(vm.clusterip, vm.uuid)
         resp = self.session.post(url, verify=False, json=data)
         if resp.ok:
@@ -367,32 +441,45 @@ class Ntxvms:
 
 class Ntxsnapshots:
 
-    def __init__(self, user=None, password=None, sslverify=False, filters=None):
-        self.session = Session()
-        self.session.auth = HTTPBasicAuth(user, password)
-        self.session.headers.update({'content-type': 'application/json'})
-        self.session.headers.update({'Accept': 'application/json'})
-        self.session.verify = sslverify
+    def __init__(self, clusters, user=None, password=None, sslverify=False,  initialrefresh=True):
+        self.user = user
+        self.password = password
+        self.sslverify = sslverify
+
+        self.clusters = clusters
         # Snapshots as list
         self.snapshots = []
-        self.filters = filters
 
-    def refresh(self):
+        if initialrefresh:
+            self.refresh(newconn=True)
+
+    def __newsession(self):
+        self.session = Session()
+        self.session.auth = HTTPBasicAuth(self.user, self.password)
+        self.session.headers.update({'content-type': 'application/json'})
+        self.session.headers.update({'Accept': 'application/json'})
+        self.session.verify = self.sslverify
+
+    def refresh(self, newconn=False):
         self.snapshots.clear()
+        if newconn:
+            self.__newsession()
         print('Start refresh Snapshots')
+        if newconn:
+            self.__newsession()
 
-        clusters = getclusters(self.session, self.filters)
-        for clustername, clusteruuid, clusterip, clustertype, clusterloc in clusters:
-            print('get VMs snapshots on {}'.format(clustername))
-            self.snapshots.extend(self._getclustersnaphots(clusterip))
 
-    def _getclustersnaphots(self, clusterip):
+        for cluster in self.clusters.allclusters:
+            print('get VMs snapshots on {}'.format(cluster.clustername))
+            self.snapshots.extend(self.__pullclustersnaphots(cluster.clusterip))
+
+    def __pullclustersnaphots(self, clusterip):
         urlbase = 'https://{}:9440/api/nutanix/v2.0/snapshots'.format(clusterip)
         snapshotsraw = self.session.get(urlbase)
         if snapshotsraw.ok == True:
             snapshots = Dict(snapshotsraw.json())
             return snapshots.entities
-        return None
+        return []
 
     @property
     def getsnapshots(self):
@@ -400,24 +487,33 @@ class Ntxsnapshots:
 
 
 class Ntxhosts:
-    def __init__(self, user=None, password=None, sslverify=False, filters=None):
-        self.session = Session()
-        self.session.auth = HTTPBasicAuth(user, password)
-        self.session.headers.update({'content-type': 'application/json'})
-        self.session.headers.update({'Accept': 'application/json'})
-        self.session.verify = sslverify
+    def __init__(self, clusters, user=None, password=None, sslverify=False, initialrefresh=True):
+        self.user = user
+        self.password = password
+        self.sslverify = sslverify
+        self.clusters = clusters
         # Hosts as dictionary
         self.hosts = {}
-        self.filters = filters
+        self.clusters = clusters
+
+        if initialrefresh:
+            self.refresh(newconn=True)
+
+    def __newsession(self):
+        self.session = Session()
+        self.session.auth = HTTPBasicAuth(self.user, self.password)
+        self.session.headers.update({'content-type': 'application/json'})
+        self.session.headers.update({'Accept': 'application/json'})
+        self.session.verify = self.sslverify
 
     def refresh(self):
+
         self.hosts.clear()
         print('Start refresh Hosts')
 
-        clusters = getclusters(self.session, self.filters)
-        for clustername, clusteruuid, clusterip, clustertype, clusterloc in clusters:
-            print('get Hosts on {}'.format(clustername))
-            self.hosts.update(self._gethosts(clusterip, clusterloc))
+        for cluster in self.clusters.allclusters:
+            print('get Hosts on {}'.format(cluster.clustername))
+            self.hosts.update(self._gethosts(cluster.clusterip, cluster.clusterloc))
 
     def _gethosts(self, clusterip, clusterloc):
         urlrun = 'https://{clusterip}:9440/api/nutanix/v2.0/{api}'.format(clusterip=clusterip,
