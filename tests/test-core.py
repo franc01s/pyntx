@@ -55,7 +55,7 @@ class TestNutanix(TestCase):
         self.ntxclusters.refresh()
 
         self.assertIsInstance(self.ntxclusters.allclusters, list)
-        self.assertEquals(len(self.ntxclusters.allclusters), 1)
+        self.assertEqual(len(self.ntxclusters.allclusters), 1)
 
 
 if __name__ == '__main__':

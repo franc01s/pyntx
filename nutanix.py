@@ -276,7 +276,7 @@ class Ntxvms:
 
         return resp.ok
 
-    def protectiondomainsaddvm(self, vm, protectiondomain):
+    def addvmprotectiondomains(self, vm, protectiondomain):
         data = {
             "uuids": [
                 vm.uuid
@@ -288,6 +288,21 @@ class Ntxvms:
         resp = post(url, auth=self.auth, verify=self.sslverify, json=data)
 
         return resp.ok
+
+
+    def delvmprotectiondomains(self, vm, protectiondomain):
+        data = {
+            "uuids": [
+                vm.uuid
+            ]
+        }
+
+        url = 'https://{}:9440/api/nutanix/v2.0/protection_domains/{}/protect_vms'.format(vm.cluster.ip,
+                                                                                          protectiondomain)
+        resp = delete(url, auth=self.auth, verify=self.sslverify, json=data)
+
+        return resp.ok
+
 
     def createimage(self, vm, index):
         vmdisk_uuid, storage_container_uuid = self.getdiskuuid(vm, index)
@@ -328,6 +343,21 @@ class Ntxvms:
     @property
     def getvmlist(self):
         return self.vms
+
+    def getvmgpu(self, vm):
+        return vm.vm_gpus[0].device_name
+
+    def getvmsgpu(self):
+        vmsgpu = {}
+        for k, vm in self.vms.items():
+            if vm.get('gpus_assigned'):
+                if  vmsgpu.get(vm.vm_gpus[0].device_name):
+                    vmsgpu[vm.vm_gpus[0].device_name] += 1
+                else:
+                    vmsgpu[vm.vm_gpus[0].device_name] = 1
+        return vmsgpu
+
+        return vm.vm_gpus[0].device_name
 
     def getpdlist(self):
         urlrun = '{baseurl}/{api}'.format(baseurl=NTXBASEURL2,
@@ -460,11 +490,11 @@ class Ntxsnapshots:
         self.snapshots.clear()
 
         for cluster in self.clusters.allclusters:
-            print('get VMs snapshots on {}'.format(cluster.clustername))
+            print('get VMs snapshots on {}'.format(cluster.name))
             self.snapshots.extend(self.__pullclustersnaphots(cluster))
 
     def __pullclustersnaphots(self, cluster):
-        urlbase = 'https://{}:9440/api/nutanix/v2.0/snapshots'.format(cluster.clusterip)
+        urlbase = 'https://{}:9440/api/nutanix/v2.0/snapshots'.format(cluster.ip)
         snapshotsraw = get(urlbase, auth=self.auth, verify=self.sslverify)
         if snapshotsraw.ok == True:
             snapshots = Dict(snapshotsraw.json())
