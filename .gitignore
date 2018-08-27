@@ -101,3 +101,5 @@ app/db.sqlite
 flasksession/
 /calmproxy.log*
 **.DS_Store
+/.pytest_cache/
+.pytest_cache/

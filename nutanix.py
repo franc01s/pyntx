@@ -494,11 +494,11 @@ class Ntxhosts:
         self.hosts.clear()
 
         for cluster in self.clusters.allclusters:
-            print('get Hosts on {}'.format(cluster.clustername))
+            print('get Hosts on {}'.format(cluster.name))
             self.hosts.update(self._gethosts(cluster))
 
     def _gethosts(self, cluster):
-        urlrun = 'https://{clusterip}:9440/api/nutanix/v2.0/{api}'.format(clusterip=cluster.clusterip,
+        urlrun = 'https://{clusterip}:9440/api/nutanix/v2.0/{api}'.format(clusterip=cluster.ip,
                                                                           api='hosts')
         response = get(urlrun, auth=self.auth, verify=self.sslverify)
         hosts = Dict(response.json())
@@ -517,6 +517,18 @@ class Ntxhosts:
     def gethostsaffinity(self, gputype, loc):
         return [k for k, host in self.hosts.items() if
                 host.gpus != None and gputype in host.gpus and host.cluster.clusterloc == loc]
+
+    def gethostsbyname(self, hostpattern, many=True):
+        '''
+        Return List of Hosts matching pattern
+        :param hostpattern:
+        :return:
+        '''
+        host = [host for k, host in self.hosts.items() if hostpattern in host.name]
+        try:
+            return host if many else host[0]
+        except:
+            return []
 
     def gethostgpus(self, uuid):
         host = self.hosts.get(uuid, None)
