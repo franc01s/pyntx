@@ -138,7 +138,7 @@ class Ntxvms:
         return None
 
     def gettask(self, vm):
-        urlrun = 'https://{clusterip}:9440/api/nutanix/v2.0/tasks/{uuid}'.format(clusterip=vm.clusterip,
+        urlrun = 'https://{clusterip}:9440/api/nutanix/v2.0/tasks/{uuid}'.format(clusterip=vm.cluster.ip,
                                                                                  uuid=vm.taskuuid)
 
         response = get(urlrun, auth=self.auth, verify=self.sslverify)
@@ -193,9 +193,7 @@ class Ntxvms:
             resp = get(url, params=payload, auth=self.auth, verify=self.sslverify)
             if resp.ok:
                 snapshots = Dict(resp.json())
-                snapshots.clusterip = vm.clusterip
-                snapshots.clustername = vm.clustername
-                snapshots.clusterloc = vm.clusterloc
+                snapshots.cluster = vm.cluster
                 return snapshots
         else:
             print('To much VMs match')
@@ -507,6 +505,12 @@ class Ntxsnapshots:
     def getsnapshots(self):
         return self.snapshots
 
+    def delsnapsnots(self, cluster, uuid):
+        # First vm of the match
+        url = 'https://{clusterip}:9440/api/nutanix/v2.0/snapshots'.format(clusterip=cluster.ip, uuid=uuid)
+        resp = delete(url, auth=self.auth, verify=self.sslverify)
+        return resp.ok
+
 
 class Ntxhosts:
     def __init__(self, clusters, user=None, password=None, sslverify=False, initialrefresh=True):
@@ -546,7 +550,7 @@ class Ntxhosts:
 
     def gethostsaffinity(self, gputype, loc):
         return [k for k, host in self.hosts.items() if
-                host.gpus != None and gputype in host.gpus and host.cluster.clusterloc == loc]
+                host.gpus != None and gputype in host.gpus and host.cluster.loc == loc]
 
     def gethostsbyname(self, hostpattern, many=True):
         '''
@@ -564,7 +568,7 @@ class Ntxhosts:
         host = self.hosts.get(uuid, None)
         if host != None and host.gpus:
             urlrun = 'https://{hostclusterip}:9440/api/nutanix/v2.0/hosts/{uuid}/host_gpus'.format(
-                hostclusterip=host.hostclusterip, uuid=uuid)
+                hostclusterip=host.hostcluster.ip, uuid=uuid)
             response = get(urlrun, auth=self.auth, verify=self.sslverify)
             hostgpus = Dict(response.json())
 
