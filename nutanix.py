@@ -16,6 +16,40 @@ NTXBASEURL2 = 'https://{prismhost}/api/nutanix/{version}'.format(prismhost=NTXPR
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
+# Formating as Marshmallow Ntx output for methods
+class NtxOutput(object):
+    def __init__(self, resp, cluster=None):
+        if isinstance(resp, Response):
+            self.code = resp.status_code
+            self.status = resp.json()
+            self.cluster = cluster
+        elif isinstance(resp, str):
+            self.code = 500
+            self.status = {"exception": resp}
+
+        self.__out = NtxOutputSchema().dump(self)
+
+    @property
+    def getnbentities(self):
+        return self.__out.data['status'].get('metadata', None).get('grand_total_entities', None)
+
+    @property
+    def getentities(self):
+        return self.__out.data['status'].get('entities', None)
+
+    @property
+    def getcluster(self):
+        return self.__out.data['cluster']
+
+
+
+class NtxOutputSchema(Schema):
+    code = fields.Integer(default=200)
+    status = fields.Dict(missing={})
+    cluster = fields.Dict(missing={})
+
+##########
+
 class Cluster():
     def __init__(self, name, uuid, ip, type, loc):
         self.name = name
@@ -170,11 +204,15 @@ class Ntxvms:
         :param vmnamepattern:
         :return:
         '''
-        vm = [vm for k, vm in self.vms.items() if vmnamepattern in vm.name]
         try:
-            return vm if many else vm[0]
+            if many:
+                vm = [vm for k, vm in self.vms.items() if vmnamepattern in vm.name]
+                return vm
+            else:
+                vm = [vm for k, vm in self.vms.items() if vmnamepattern == vm.name]
+                return vm[0]
         except:
-            return []
+            return None
 
     def getdiskuuid(self, vm, index):
         disks = vm.vm_disk_info
@@ -183,22 +221,29 @@ class Ntxvms:
                 return (disk.disk_address.vmdisk_uuid, disk.storage_container_uuid)
         return None
 
-    def getvmsnapsnots(self, vmnamepattern):
-        vms = self.getvmsbyname(vmnamepattern)
-        if len(vms) == 1:
-            # First vm of the match
-            vm = vms[0]
-            payload = {'vm_uuid': vm.uuid}
-            url = 'https://{}:9440/api/nutanix/v2.0/snapshots'.format(vm.cluster.ip)
-            resp = get(url, params=payload, auth=self.auth, verify=self.sslverify)
-            if resp.ok:
-                snapshots = Dict(resp.json())
-                snapshots.cluster = vm.cluster
-                return snapshots
-        else:
-            print('To much VMs match')
+    def getvmsnapshots(self, vmname):
+        try:
+            vm = self.getvmsbyname(vmname, many=False)
+            if vm:
+                # First vm of the match
+                payload = {'vm_uuid': vm.uuid}
+                url = 'https://{}:9440/api/nutanix/v2.0/snapshots'.format(vm.cluster.ip)
+                resp = get(url, params=payload, auth=self.auth, verify=self.sslverify)
+                if resp.ok:
+                    snapshots = Dict(resp.json())
+                    return NtxOutput(resp, vm.cluster)
+                else:
+                    return NtxOutput(resp.text)
+            else:
+                return NtxOutput('No VM Match')
+        except Exception as e:
+            return NtxOutput(e)
 
-        return []
+    def restorevmfromsnapshot(self, vmname, snapshotname):
+        snapshots = self.getvmsnapshots(vmname)
+        if snapshots.getnbentities > 0:
+            snap_uuid, vm_uuid = [snapshot['uuid'] [snapshot['vm_uuid'] for snapshot in snapshots.getentities if snapshotname == snapshot['snapshot_name']]
+            url = 'https://{}:9440/api/nutanix/v2.0/vms/{}'.format(snapsnots.cluster.ip, vm_uuid)
 
     def delsnapsnots(self, cluster, uuid):
         # First vm of the match
@@ -287,7 +332,6 @@ class Ntxvms:
 
         return resp.ok
 
-
     def delvmprotectiondomains(self, vm, protectiondomain):
         data = {
             "uuids": [
@@ -300,7 +344,6 @@ class Ntxvms:
         resp = delete(url, auth=self.auth, verify=self.sslverify, json=data)
 
         return resp.ok
-
 
     def createimage(self, vm, index):
         vmdisk_uuid, storage_container_uuid = self.getdiskuuid(vm, index)
@@ -349,7 +392,7 @@ class Ntxvms:
         vmsgpu = {}
         for k, vm in self.vms.items():
             if vm.get('gpus_assigned'):
-                if  vmsgpu.get(vm.vm_gpus[0].device_name):
+                if vmsgpu.get(vm.vm_gpus[0].device_name):
                     vmsgpu[vm.vm_gpus[0].device_name] += 1
                 else:
                     vmsgpu[vm.vm_gpus[0].device_name] = 1
