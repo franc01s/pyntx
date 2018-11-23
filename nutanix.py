@@ -3,7 +3,7 @@ from requests.auth import HTTPBasicAuth
 import json, os
 from collections import namedtuple
 from marshmallow import Schema, fields, pprint
-from addict import Dict
+from addict import Dict as Adict
 import datetime as dt
 import urllib3
 import time
@@ -42,11 +42,11 @@ class NtxOutput(object):
         return self.__out.data['cluster']
 
 
-
 class NtxOutputSchema(Schema):
     code = fields.Integer(default=200)
     status = fields.Dict(missing={})
     cluster = fields.Dict(missing={})
+
 
 ##########
 
@@ -108,7 +108,7 @@ class Ntxclusters:
         urlrun = '{baseurl}/{api}'.format(baseurl=NTXBASEURL3, api='clusters/list')
         data = {"kind": "cluster"}
         response = post(urlrun, json=data, auth=self.auth, verify=self.sslverify)
-        clusters = Dict(response.json())
+        clusters = Adict(response.json())
         for cluster in clusters.entities:
             clusterip = cluster.spec.resources.network.external_ip
             clustername = cluster.spec.name
@@ -159,17 +159,16 @@ class Ntxvms:
             self.vms.update(self.pullclustervms(cluster=cluster))
 
     def pullclustervms(self, cluster):
-        payload = {'include_vm_disk_config': 'true'}
-        urlbase = 'https://{}:9440/api/nutanix/v2.0/vms'.format(cluster.ip)
-        vmsraw = get(urlbase, params=payload, auth=self.auth, verify=self.sslverify)
-        vms = {}
-        if vmsraw.ok == True:
-            clustervms = Dict(vmsraw.json())
-            for vm in clustervms.entities:
-                vm['cluster'] = cluster
-                vms[vm.uuid] = vm
-            return vms
-        return None
+        try:
+            payload = {'include_vm_disk_config': 'true'}
+            urlbase = 'https://{}:9440/api/nutanix/v2.0/vms'.format(cluster.ip)
+            resp = get(urlbase, params=payload, auth=self.auth, verify=self.sslverify)
+            if resp.ok == True:
+                return NtxOutput(resp)
+            else:
+                return NtxOutput(resp.text)
+        except Exception as e:
+            return NtxOutput(e)
 
     def gettask(self, vm):
         urlrun = 'https://{clusterip}:9440/api/nutanix/v2.0/tasks/{uuid}'.format(clusterip=vm.cluster.ip,
@@ -206,15 +205,16 @@ class Ntxvms:
         '''
         try:
             if many:
-                vm = [vm for k, vm in self.vms.items() if vmnamepattern in vm.name]
-                return vm
+                vms = [vm for k, vm in self.vms.items() if vmnamepattern in vm.get('name')]
+                return vms
             else:
-                vm = [vm for k, vm in self.vms.items() if vmnamepattern == vm.name]
-                return vm[0]
+                vms = [vm for k, vm in self.vms.items() if vmnamepattern == vm.get('name')]
+                return Adict(vms[0])
         except:
             return None
 
     def getdiskuuid(self, vm, index):
+        vm = aDict(vm)
         disks = vm.vm_disk_info
         for disk in disks:
             if disk.disk_address.device_bus == 'scsi' and disk.disk_address.device_index == index:
@@ -224,13 +224,14 @@ class Ntxvms:
     def getvmsnapshots(self, vmname):
         try:
             vm = self.getvmsbyname(vmname, many=False)
+            # Transform vm in Object notation
+            vm = Adict(vm)
             if vm:
                 # First vm of the match
                 payload = {'vm_uuid': vm.uuid}
                 url = 'https://{}:9440/api/nutanix/v2.0/snapshots'.format(vm.cluster.ip)
                 resp = get(url, params=payload, auth=self.auth, verify=self.sslverify)
                 if resp.ok:
-                    snapshots = Dict(resp.json())
                     return NtxOutput(resp, vm.cluster)
                 else:
                     return NtxOutput(resp.text)
@@ -242,275 +243,317 @@ class Ntxvms:
     def restorevmfromsnapshot(self, vmname, snapshotname):
         snapshots = self.getvmsnapshots(vmname)
         if snapshots.getnbentities > 0:
-            snap_uuid, vm_uuid = [snapshot['uuid'] [snapshot['vm_uuid'] for snapshot in snapshots.getentities if snapshotname == snapshot['snapshot_name']]
-            url = 'https://{}:9440/api/nutanix/v2.0/vms/{}'.format(snapsnots.cluster.ip, vm_uuid)
+            snaps = [snapshot for snapshot in snapshots.getentities if snapshotname == snapshot['snapshot_name']]
+            if len(snaps) > 0:
+                # Put first snapshot in Object notation
+                snap = Adict(snaps[0])
+            # Create Post body
+            data = {"transition": False,
+                    "snapshot_uuid": snap.uuid
+                    }
 
-    def delsnapsnots(self, cluster, uuid):
-        # First vm of the match
-        url = 'https://{clusterip}:9440/api/nutanix/v2.0/snapshots/{uuid}'.format(clusterip=cluster.ip, uuid=uuid)
-        resp = delete(url, auth=self.auth, verify=self.sslverify)
+        url = 'https://{}:9440/api/nutanix/v2.0/vms/{}/restore'.format(snapshots.getcluster.ip, snap.vm_uuid)
+        resp = post(url, auth=self.auth, verify=self.sslverify, json=data)
+
         return resp.ok
 
-    def getsnapsnots(self, cluster):
-        url = 'https://{}:9440/api/nutanix/v2.0/snapshots'.format(cluster.ip)
-        resp = get(url, auth=self.auth, verify=self.sslverify)
-        if resp.ok:
-            return Dict(resp.json())
-        else:
-            return None
+    def setvmpowerstate(self, vmname):
+        vm = self.getvmsbyname(vmname, many=False)
+        if vm:
+            # Create Post body
+            data = {"transition": "ON"
+                    }
 
-    def createsnapshot(self, vm, snapname):
+        url = 'https://{}:9440/api/nutanix/v2.0/vms/{}/set_power_state'.format(vm.cluster.ip, vm.uuid)
+        resp = post(url, auth=self.auth, verify=self.sslverify, json=data)
+
+        return resp.ok
+
+
+def delsnapsnots(self, cluster, uuid):
+    # First vm of the match
+    url = 'https://{clusterip}:9440/api/nutanix/v2.0/snapshots/{uuid}'.format(clusterip=cluster.ip, uuid=uuid)
+    resp = delete(url, auth=self.auth, verify=self.sslverify)
+    return resp.ok
+
+
+def getsnapsnots(self, cluster):
+    url = 'https://{}:9440/api/nutanix/v2.0/snapshots'.format(cluster.ip)
+    resp = get(url, auth=self.auth, verify=self.sslverify)
+    if resp.ok:
+        return Dict(resp.json())
+    else:
+        return None
+
+
+def createsnapshot(self, vm, snapname):
+    data = {
+        "snapshot_specs": [
+            {
+                "snapshot_name": snapname,
+                "vm_uuid": vm.uuid
+            }
+        ]
+    }
+    url = 'https://{}:9440/api/nutanix/v2.0/snapshots'.format(vm.cluster.ip)
+    resp = post(url, auth=self.auth, verify=self.sslverify, json=data)
+    if resp.ok:
+        vm.taskuuid = resp.json()['task_uuid']
+
+    return resp.ok
+
+
+def updatevm(self, vm, data):
+    '''
+    Input example
+
+     datat = {
+    "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": hosts
+    },
+    "num_cores_per_vcpu": 1,
+    "num_vcpus": 4,
+    "memory_mb": 16384,
+    "vm_gpus": [
+        {
+            "device_id": 47,
+            "gpu_type": "VIRTUAL",
+            "gpu_vendor": "NVIDIA",
+
+        }
+    ]}
+
+
+    ntxvms.updatevm(vm, datat)
+
+
+    :param vm:
+    :param data:
+    :return:
+    '''
+    url = 'https://{}:9440/api/nutanix/v2.0/vms/{}'.format(vm.cluster.ip, vm.uuid)
+    resp = put(url, auth=self.auth, verify=self.sslverify, json=data)
+    if resp.ok:
+        vm.taskuuid = resp.json()['task_uuid']
+
+    return resp.ok
+
+
+def clonevm(self, vm, data):
+    url = 'https://{}:9440/api/nutanix/v2.0/vms/{}/clone'.format(vm.cluster.ip, vm.uuid)
+    resp = post(url, auth=self.auth, verify=self.sslverify, json=data)
+    if resp.ok:
+        vm.taskuuid = resp.json()['task_uuid']
+
+    return resp.ok
+
+
+def addvmprotectiondomains(self, vm, protectiondomain):
+    data = {
+        "uuids": [
+            vm.uuid
+        ]
+    }
+
+    url = 'https://{}:9440/api/nutanix/v2.0/protection_domains/{}/protect_vms'.format(vm.cluster.ip,
+                                                                                      protectiondomain)
+    resp = post(url, auth=self.auth, verify=self.sslverify, json=data)
+
+    return resp.ok
+
+
+def delvmprotectiondomains(self, vm, protectiondomain):
+    data = {
+        "uuids": [
+            vm.uuid
+        ]
+    }
+
+    url = 'https://{}:9440/api/nutanix/v2.0/protection_domains/{}/protect_vms'.format(vm.cluster.ip,
+                                                                                      protectiondomain)
+    resp = delete(url, auth=self.auth, verify=self.sslverify, json=data)
+
+    return resp.ok
+
+
+def createimage(self, vm, index):
+    vmdisk_uuid, storage_container_uuid = self.getdiskuuid(vm, index)
+    data = {
+        "spec": {
+            "name": vm.name,
+            "resources": {
+                "image_type": "DISK_IMAGE",
+                "source_uri": "nfs://{clusterip}/{clustername}-SSD-1/.acropolis/vmdisk/{vmiskuuid}".format(
+                    clusterip=vm.clusterip, clustername=vm.clustername, vmiskuuid=vmdisk_uuid)
+            },
+        },
+        "api_version": "3.1",
+        "metadata": {
+            "kind": "image",
+            "name": vm.name
+        }
+    }
+    url = '{baseurl}/{api}'.format(baseurl=NTXBASEURL3, api='images')
+    resp = post(url, auth=self.auth, verify=self.sslverify, json=data)
+
+    return resp.ok
+
+
+def createvmsnapident(self, vm):
+    urlrun = '{baseurl}/{api}'.format(baseurl=NTXBASEURL3, api='idempotence_identifiers')
+    data = {
+        "count": 1,
+        "client_identifier": vm.uuid
+    }
+
+    response = post(urlrun, data=json.dumps(data), auth=self.auth, verify=self.sslverify)
+    if response.ok:
+        snapuuid = response.json()
+        # return the unique element
+        self.identlist.extend(snapuuid.get('uuid_list', []))
+    return response.ok
+
+
+@property
+def getvmlist(self):
+    return self.vms
+
+
+def getvmgpu(self, vm):
+    return vm.vm_gpus[0].device_name
+
+
+def getvmsgpu(self):
+    vmsgpu = {}
+    for k, vm in self.vms.items():
+        if vm.get('gpus_assigned'):
+            if vmsgpu.get(vm.vm_gpus[0].device_name):
+                vmsgpu[vm.vm_gpus[0].device_name] += 1
+            else:
+                vmsgpu[vm.vm_gpus[0].device_name] = 1
+    return vmsgpu
+
+    return vm.vm_gpus[0].device_name
+
+
+def getpdlist(self):
+    urlrun = '{baseurl}/{api}'.format(baseurl=NTXBASEURL2,
+                                      api='protection_domains/PD-NTXCHGR004-BACKUP/dr_snapshots')
+    response = get(urlrun, auth=self.auth, verify=self.sslverify)
+    print(json.dumps(response.json(), indent=4))
+
+
+def diskattach(self, ndfs_filepath):
+    if ndfs_filepath != None:
+        if self.clustertype != 'AHV':
+            diskpath, diskext = os.path.splitext(ndfs_filepath)
+            ndfs_filepath = '{diskpath}-flat{diskext}'.format(diskpath=diskpath, diskext=diskext)
+        api = 'vms/{vmuuid}/disks/attach'.format(vmuuid=self.vm.uuid)
+        urlrun = 'https://{baseurl}:9440/api/nutanix/v2.0/{api}'.format(baseurl=self.clusterip,
+                                                                        api=api)
         data = {
-            "snapshot_specs": [
+            "uuid": self.vmuuid,
+            "vm_disks": [
                 {
-                    "snapshot_name": snapname,
-                    "vm_uuid": vm.uuid
+                    "vm_disk_clone": {
+                        "disk_address": {
+                            "device_bus": "SCSI",
+                            "device_index": 0,
+                            "ndfs_filepath": ndfs_filepath
+                        }
+                    }
                 }
             ]
         }
-        url = 'https://{}:9440/api/nutanix/v2.0/snapshots'.format(vm.cluster.ip)
-        resp = post(url, auth=self.auth, verify=self.sslverify, json=data)
+        resp = post(urlrun, auth=self.auth, verify=self.sslverify, data=json.dumps(data))
         if resp.ok:
-            vm.taskuuid = resp.json()['task_uuid']
-
-        return resp.ok
-
-    def updatevm(self, vm, data):
-        '''
-        Input example
-
-         datat = {
-        "affinity": {
-            "policy": "AFFINITY",
-            "host_uuids": hosts
-        },
-        "num_cores_per_vcpu": 1,
-        "num_vcpus": 4,
-        "memory_mb": 16384,
-        "vm_gpus": [
-            {
-                "device_id": 47,
-                "gpu_type": "VIRTUAL",
-                "gpu_vendor": "NVIDIA",
-
-            }
-        ]}
+            return resp.json()['task_uuid']
+        else:
+            return resp.json()
+    else:
+        resp = Response()
+        resp.status_code = 500
+        resp.json = {"status": "error", "message": "Disk index"}
+        return resp
 
 
-        ntxvms.updatevm(vm, datat)
-
-
-        :param vm:
-        :param data:
-        :return:
-        '''
-        url = 'https://{}:9440/api/nutanix/v2.0/vms/{}'.format(vm.cluster.ip, vm.uuid)
-        resp = put(url, auth=self.auth, verify=self.sslverify, json=data)
-        if resp.ok:
-            vm.taskuuid = resp.json()['task_uuid']
-
-        return resp.ok
-
-    def clonevm(self, vm, data):
-        url = 'https://{}:9440/api/nutanix/v2.0/vms/{}/clone'.format(vm.cluster.ip, vm.uuid)
-        resp = post(url, auth=self.auth, verify=self.sslverify, json=data)
-        if resp.ok:
-            vm.taskuuid = resp.json()['task_uuid']
-
-        return resp.ok
-
-    def addvmprotectiondomains(self, vm, protectiondomain):
+def diskdetach(self, index):
+    api = 'vms/{vmuuid}/disks/detach'.format(vmuuid=self.vm.uuid)
+    urlrun = 'https://{baseurl}:9440/api/nutanix/v2.0/{api}'.format(baseurl=self.clusterip,
+                                                                    api=api)
+    diskuuid = self.getvmdiskuuid(index)
+    if diskuuid != None:
         data = {
-            "uuids": [
-                vm.uuid
+            "uuid": self.vm.uuid,
+            "vm_disks": [
+                {
+                    "disk_address": {
+                        "device_bus": "SCSI",
+                        "device_index": index,
+                        "vmdisk_uuid": diskuuid,
+                        "ndfs_filepath": self.getvmdiskpathbyindex(index)
+                    }
+                }
             ]
         }
+        response = post(urlrun, auth=self.auth, verify=self.sslverify, data=json.dumps(data))
+        if response.ok:
+            return response.json()['task_uuid']
+        else:
+            return None
 
-        url = 'https://{}:9440/api/nutanix/v2.0/protection_domains/{}/protect_vms'.format(vm.cluster.ip,
-                                                                                          protectiondomain)
-        resp = post(url, auth=self.auth, verify=self.sslverify, json=data)
 
-        return resp.ok
+def getvmdiskpathbydiskuuid(self, diskuuid):
+    diskpath = [disk.path for disk in self.vmdisks if diskuuid in disk.path]
+    if len(diskpath) > 0:
+        return diskpath[0]
+    else:
+        return None
 
-    def delvmprotectiondomains(self, vm, protectiondomain):
-        data = {
-            "uuids": [
-                vm.uuid
-            ]
-        }
 
-        url = 'https://{}:9440/api/nutanix/v2.0/protection_domains/{}/protect_vms'.format(vm.cluster.ip,
-                                                                                          protectiondomain)
-        resp = delete(url, auth=self.auth, verify=self.sslverify, json=data)
+def getvmdiskpathbyindex(self, index):
+    diskpath = [disk.path for disk in self.vmdisks if disk.index == index]
+    if len(diskpath) > 0:
+        return diskpath[0]
+    else:
+        return None
 
-        return resp.ok
 
-    def createimage(self, vm, index):
-        vmdisk_uuid, storage_container_uuid = self.getdiskuuid(vm, index)
+def createsnapident(self):
+    urlrun = '{baseurl}/{api}'.format(baseurl=NTXBASEURL3, api='idempotence_identifiers')
+    data = {
+        "count": 1,
+        "client_identifier": self.vm.uuid
+    }
+
+    response = post(urlrun, auth=self.auth, verify=self.sslverify, json=data)
+    if response.ok:
+        snapuuid = response.json()
+        # return the unique element
+        self.identlist.extend(snapuuid.get('uuid_list', []))
+
+
+def createvmsnapshots(self, snapname):
+    if self.identlist != []:
+        urlrun = '{baseurl}/{api}'.format(baseurl=NTXBASEURL3, api='vm_snapshots')
         data = {
             "spec": {
-                "name": vm.name,
                 "resources": {
-                    "image_type": "DISK_IMAGE",
-                    "source_uri": "nfs://{clusterip}/{clustername}-SSD-1/.acropolis/vmdisk/{vmiskuuid}".format(
-                        clusterip=vm.clusterip, clustername=vm.clustername, vmiskuuid=vmdisk_uuid)
+                    "entity_uuid": self.vm.uuid
                 },
+                "snapshot_type": "CRASH_CONSISTENT",
+                "name": snapname
             },
             "api_version": "3.1",
             "metadata": {
-                "kind": "image",
-                "name": vm.name
+                "kind": "vm_snapshot",
+                "uuid": self.identlist[0]
             }
-        }
-        url = '{baseurl}/{api}'.format(baseurl=NTXBASEURL3, api='images')
-        resp = post(url, auth=self.auth, verify=self.sslverify, json=data)
-
-        return resp.ok
-
-    def createvmsnapident(self, vm):
-        urlrun = '{baseurl}/{api}'.format(baseurl=NTXBASEURL3, api='idempotence_identifiers')
-        data = {
-            "count": 1,
-            "client_identifier": vm.uuid
-        }
-
-        response = post(urlrun, data=json.dumps(data), auth=self.auth, verify=self.sslverify)
-        if response.ok:
-            snapuuid = response.json()
-            # return the unique element
-            self.identlist.extend(snapuuid.get('uuid_list', []))
-        return response.ok
-
-    @property
-    def getvmlist(self):
-        return self.vms
-
-    def getvmgpu(self, vm):
-        return vm.vm_gpus[0].device_name
-
-    def getvmsgpu(self):
-        vmsgpu = {}
-        for k, vm in self.vms.items():
-            if vm.get('gpus_assigned'):
-                if vmsgpu.get(vm.vm_gpus[0].device_name):
-                    vmsgpu[vm.vm_gpus[0].device_name] += 1
-                else:
-                    vmsgpu[vm.vm_gpus[0].device_name] = 1
-        return vmsgpu
-
-        return vm.vm_gpus[0].device_name
-
-    def getpdlist(self):
-        urlrun = '{baseurl}/{api}'.format(baseurl=NTXBASEURL2,
-                                          api='protection_domains/PD-NTXCHGR004-BACKUP/dr_snapshots')
-        response = get(urlrun, auth=self.auth, verify=self.sslverify)
-        print(json.dumps(response.json(), indent=4))
-
-    def diskattach(self, ndfs_filepath):
-        if ndfs_filepath != None:
-            if self.clustertype != 'AHV':
-                diskpath, diskext = os.path.splitext(ndfs_filepath)
-                ndfs_filepath = '{diskpath}-flat{diskext}'.format(diskpath=diskpath, diskext=diskext)
-            api = 'vms/{vmuuid}/disks/attach'.format(vmuuid=self.vm.uuid)
-            urlrun = 'https://{baseurl}:9440/api/nutanix/v2.0/{api}'.format(baseurl=self.clusterip,
-                                                                            api=api)
-            data = {
-                "uuid": self.vmuuid,
-                "vm_disks": [
-                    {
-                        "vm_disk_clone": {
-                            "disk_address": {
-                                "device_bus": "SCSI",
-                                "device_index": 0,
-                                "ndfs_filepath": ndfs_filepath
-                            }
-                        }
-                    }
-                ]
-            }
-            resp = post(urlrun, auth=self.auth, verify=self.sslverify, data=json.dumps(data))
-            if resp.ok:
-                return resp.json()['task_uuid']
-            else:
-                return resp.json()
-        else:
-            resp = Response()
-            resp.status_code = 500
-            resp.json = {"status": "error", "message": "Disk index"}
-            return resp
-
-    def diskdetach(self, index):
-        api = 'vms/{vmuuid}/disks/detach'.format(vmuuid=self.vm.uuid)
-        urlrun = 'https://{baseurl}:9440/api/nutanix/v2.0/{api}'.format(baseurl=self.clusterip,
-                                                                        api=api)
-        diskuuid = self.getvmdiskuuid(index)
-        if diskuuid != None:
-            data = {
-                "uuid": self.vm.uuid,
-                "vm_disks": [
-                    {
-                        "disk_address": {
-                            "device_bus": "SCSI",
-                            "device_index": index,
-                            "vmdisk_uuid": diskuuid,
-                            "ndfs_filepath": self.getvmdiskpathbyindex(index)
-                        }
-                    }
-                ]
-            }
-            response = post(urlrun, auth=self.auth, verify=self.sslverify, data=json.dumps(data))
-            if response.ok:
-                return response.json()['task_uuid']
-            else:
-                return None
-
-    def getvmdiskpathbydiskuuid(self, diskuuid):
-        diskpath = [disk.path for disk in self.vmdisks if diskuuid in disk.path]
-        if len(diskpath) > 0:
-            return diskpath[0]
-        else:
-            return None
-
-    def getvmdiskpathbyindex(self, index):
-        diskpath = [disk.path for disk in self.vmdisks if disk.index == index]
-        if len(diskpath) > 0:
-            return diskpath[0]
-        else:
-            return None
-
-    def createsnapident(self):
-        urlrun = '{baseurl}/{api}'.format(baseurl=NTXBASEURL3, api='idempotence_identifiers')
-        data = {
-            "count": 1,
-            "client_identifier": self.vm.uuid
         }
 
         response = post(urlrun, auth=self.auth, verify=self.sslverify, json=data)
-        if response.ok:
-            snapuuid = response.json()
-            # return the unique element
-            self.identlist.extend(snapuuid.get('uuid_list', []))
-
-    def createvmsnapshots(self, snapname):
-        if self.identlist != []:
-            urlrun = '{baseurl}/{api}'.format(baseurl=NTXBASEURL3, api='vm_snapshots')
-            data = {
-                "spec": {
-                    "resources": {
-                        "entity_uuid": self.vm.uuid
-                    },
-                    "snapshot_type": "CRASH_CONSISTENT",
-                    "name": snapname
-                },
-                "api_version": "3.1",
-                "metadata": {
-                    "kind": "vm_snapshot",
-                    "uuid": self.identlist[0]
-                }
-            }
-
-            response = post(urlrun, auth=self.auth, verify=self.sslverify, json=data)
-            return response.json()
+        return response.json()
 
 
 class Ntxsnapshots:
