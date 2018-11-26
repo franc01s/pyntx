@@ -1,8 +1,10 @@
+import json
 from unittest import TestCase, main
 from unittest.mock import patch, Mock
-from requests.auth import HTTPBasicAuth
-import nutanix
+
 from requests.models import Response
+
+import nutanix
 
 
 class TestNutanix(TestCase):
@@ -11,41 +13,8 @@ class TestNutanix(TestCase):
 
     @patch.object(nutanix, 'post', autosoec=True)
     def test_cluster_refresh(self, mockresponse):
-        getclusterjsonresp = {
-            "api": "3.0",
-            "entities": [
-
-                {
-                    "spec": {
-                        "name": "NTXCHBIXXX",
-                        "resources": {
-                            "network": {
-                                "external_ip": "10.236.36.84"
-                            }
-                        }
-                    },
-
-                    "metadata": {
-                        "uuid": "00056aad-674c-94e6-0000-00000001a896"
-                    },
-
-                    "status": {
-                        "resources": {
-                            "nodes": {
-                                "hypervisor_server_list": [
-                                    {
-                                        "ip": "10.236.36.76",
-                                        "type": "VMWARE",
-                                        "version": "6.0.0-5050593"
-                                    }
-                                ]
-                            }
-                        }
-                    }
-
-                }
-            ]
-        }
+        with open('tests/cluster.json', 'r') as outfile:
+            getclusterjsonresp = json.load(outfile)
 
         nutaresponse = Mock(spec=Response)
         nutaresponse.json = Mock(return_value=getclusterjsonresp)
@@ -54,8 +23,8 @@ class TestNutanix(TestCase):
         mockresponse.return_value = nutaresponse
         self.ntxclusters.refresh()
 
-        self.assertIsInstance(self.ntxclusters.allclusters, list)
-        self.assertEqual(len(self.ntxclusters.allclusters), 1)
+        self.assertIsInstance(self.ntxclusters.clusters, list)
+        self.assertAlmostEquals(len(self.ntxclusters.clusters), 13)
 
 
 if __name__ == '__main__':

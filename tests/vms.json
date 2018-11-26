@@ -1,0 +1,2665 @@
+{
+  "metadata": {
+    "grand_total_entities": 81,
+    "total_entities": 0,
+    "count": 81
+  },
+  "entities": [
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "host_uuid": "231b84d5-19ec-43b8-94f8-4296caaab72f",
+      "memory_mb": 4096,
+      "name": "ITS-VD-T00011",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "fff156d3-28fb-4057-b2ea-e110e811f89c",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 14
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "7073a498-8251-4314-b0d5-233e0d5f453d",
+          "cb46686c-ba07-4f20-938b-8c463180208d"
+        ]
+      },
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "cb46686c-ba07-4f20-938b-8c463180208d",
+      "memory_mb": 8000,
+      "name": "ITS-VD-T10125",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 4,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "fd676a8a-8d5e-44ef-811a-4188b96d6f80",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 35,
+          "device_name": "GRID_M10-0B",
+          "fraction": 16,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-PC,2.0",
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:06:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 106
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "host_uuid": "231b84d5-19ec-43b8-94f8-4296caaab72f",
+      "memory_mb": 4096,
+      "name": "ITS-VD-T00027",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "fd72c5be-a2f1-4f9b-a85e-dfb94134630a",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 9
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "host_uuid": "231b84d5-19ec-43b8-94f8-4296caaab72f",
+      "memory_mb": 4096,
+      "name": "ITS-VD-T00002",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "d2865653-1f98-4665-9f1d-bc9a55738936",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 12
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "54ebf536-3824-468c-8c38-85a72882afb5",
+      "memory_mb": 16000,
+      "name": "ITS-VD-T30014",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "d7867da4-254d-4bc8-b3b6-94a585320b20",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 47,
+          "device_name": "GRID_P40-2Q",
+          "fraction": 12,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 1,
+          "sbdf": "0000:82:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 54
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "7073a498-8251-4314-b0d5-233e0d5f453d",
+          "cb46686c-ba07-4f20-938b-8c463180208d"
+        ]
+      },
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "cb46686c-ba07-4f20-938b-8c463180208d",
+      "memory_mb": 8000,
+      "name": "ITS-VD-T10132",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 4,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "d4803f5b-c034-40f9-9d2b-56603bfa2090",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 35,
+          "device_name": "GRID_M10-0B",
+          "fraction": 16,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-PC,2.0",
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:05:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 43
+    },
+    {
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "memory_mb": 16384,
+      "name": "ITS-PROD-GR2-T3-Catia-R28",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 4,
+      "power_state": "off",
+      "timezone": "Europe/Zurich",
+      "uuid": "d98c8df4-87dc-4f23-8d69-20524a553603",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "device_id": 47,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA"
+        }
+      ],
+      "vm_logical_timestamp": 2
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "host_uuid": "231b84d5-19ec-43b8-94f8-4296caaab72f",
+      "memory_mb": 4096,
+      "name": "ITS-VD-T00004",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "e1bc93a0-dc39-42c3-8048-0fe61a4daa7d",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 17
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "host_uuid": "54ebf536-3824-468c-8c38-85a72882afb5",
+      "memory_mb": 4096,
+      "name": "ITS-VD-T00015",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "e66f17c8-de24-451e-8895-ee417ed6ea2d",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 14
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "7073a498-8251-4314-b0d5-233e0d5f453d",
+          "cb46686c-ba07-4f20-938b-8c463180208d"
+        ]
+      },
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "cb46686c-ba07-4f20-938b-8c463180208d",
+      "memory_mb": 8000,
+      "name": "ITS-VD-T10139",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 4,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "eb65cd7f-330a-4c20-b105-9bb643d52143",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 35,
+          "device_name": "GRID_M10-0B",
+          "fraction": 16,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-PC,2.0",
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:05:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 34
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "host_uuid": "231b84d5-19ec-43b8-94f8-4296caaab72f",
+      "memory_mb": 4096,
+      "name": "ITS-VD-T00005",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "e9f1fca1-f6f8-4d56-bc5c-6bcdbac64818",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 8
+    },
+    {
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+      "memory_mb": 16000,
+      "name": "ITS-VD-T30028",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "ea40e848-772b-41c5-981b-9d885d585c8b",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 47,
+          "device_name": "GRID_P40-2Q",
+          "fraction": 12,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:03:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 6
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "host_uuid": "231b84d5-19ec-43b8-94f8-4296caaab72f",
+      "memory_mb": 4096,
+      "name": "ITS-VD-T00003",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "ecd6987c-0721-420a-913c-a0730c10008e",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 19
+    },
+    {
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+      "memory_mb": 16000,
+      "name": "ITS-VD-T30012",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "f52be68f-4d2b-4138-aa56-841f82be4cea",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 47,
+          "device_name": "GRID_P40-2Q",
+          "fraction": 12,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:03:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 3
+    },
+    {
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": -1,
+      "memory_mb": 16384,
+      "name": "ITS-PROD-GR2-T3-Catia-R26",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 4,
+      "power_state": "off",
+      "timezone": "Europe/Zurich",
+      "uuid": "f5ca4fb2-46fc-4ea4-a047-b799494a3a3f",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "device_id": 47,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA"
+        }
+      ],
+      "vm_logical_timestamp": 3
+    },
+    {
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "memory_mb": 4096,
+      "name": "ITS-VDX-T00001",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "off",
+      "timezone": "UTC",
+      "uuid": "030746c6-f124-4988-bbce-a728fea3905a",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 17
+    },
+    {
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+      "memory_mb": 16000,
+      "name": "ITS-VD-T30006",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "08946c50-2304-44df-9b4c-514fa52cb384",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 47,
+          "device_name": "GRID_P40-2Q",
+          "fraction": 12,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:03:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 16
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "231b84d5-19ec-43b8-94f8-4296caaab72f",
+      "memory_mb": 16000,
+      "name": "ITS-VD-T40001",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "0df12ae7-4e13-473b-a26f-ca073a494a5b",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 49,
+          "device_name": "GRID_P40-4Q",
+          "fraction": 6,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:03:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 12
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "host_uuid": "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+      "memory_mb": 4096,
+      "name": "ITS-VD-T00017",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "117c7b3e-3c56-45c3-841e-7a3683fcc4bc",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 8
+    },
+    {
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "description": "Win 10 1709 Liquidware Optimized",
+      "ha_priority": 0,
+      "memory_mb": 8192,
+      "name": "2018-10 FlexApp PC",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 2,
+      "power_state": "off",
+      "timezone": "UTC",
+      "uuid": "27bad8d5-4794-43f8-84c4-158d2324bf18",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 138
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "host_uuid": "231b84d5-19ec-43b8-94f8-4296caaab72f",
+      "memory_mb": 4096,
+      "name": "ITS-VD-T00008",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "244904d8-ea43-400b-adaa-826a6d36b33e",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 23
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "54ebf536-3824-468c-8c38-85a72882afb5",
+      "memory_mb": 8192,
+      "name": "ITS-VD-T30001",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "2bf0abf9-0b85-46fa-9af6-fe93d059d4a4",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 47,
+          "device_name": "GRID_P40-2Q",
+          "fraction": 12,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 1,
+          "sbdf": "0000:82:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 8
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "54ebf536-3824-468c-8c38-85a72882afb5",
+      "memory_mb": 12000,
+      "name": "ITS-VD-T20020",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "3498c5e3-dbc4-4f99-a440-508601947793",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 46,
+          "device_name": "GRID_P40-1Q",
+          "fraction": 24,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:03:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 50
+    },
+    {
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": -1,
+      "memory_mb": 16384,
+      "name": "BACKUP-ITS-PROD-GR2-T3-Catia-R26",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 4,
+      "power_state": "off",
+      "timezone": "Europe/Zurich",
+      "uuid": "35591881-9d10-4acd-8005-ff113b7c07e4",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "device_id": 47,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA"
+        }
+      ],
+      "vm_logical_timestamp": 1
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "7073a498-8251-4314-b0d5-233e0d5f453d",
+          "cb46686c-ba07-4f20-938b-8c463180208d"
+        ]
+      },
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "cb46686c-ba07-4f20-938b-8c463180208d",
+      "memory_mb": 8000,
+      "name": "ITS-VD-T10140",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 4,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "357610f8-955b-45c4-873d-f3a9a20be521",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 35,
+          "device_name": "GRID_M10-0B",
+          "fraction": 16,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-PC,2.0",
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:05:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 44
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "7073a498-8251-4314-b0d5-233e0d5f453d",
+          "cb46686c-ba07-4f20-938b-8c463180208d"
+        ]
+      },
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "cb46686c-ba07-4f20-938b-8c463180208d",
+      "memory_mb": 8000,
+      "name": "ITS-VD-T10130",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 4,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "3c4be691-e5ff-4996-8e37-5fe16746c49e",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 35,
+          "device_name": "GRID_M10-0B",
+          "fraction": 16,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-PC,2.0",
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:05:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 42
+    },
+    {
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "54ebf536-3824-468c-8c38-85a72882afb5",
+      "memory_mb": 16000,
+      "name": "ITS-VD-T30003",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "3d82f46e-c9df-4dfe-9806-966b12c648a7",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 47,
+          "device_name": "GRID_P40-2Q",
+          "fraction": 12,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 1,
+          "sbdf": "0000:82:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 35
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "host_uuid": "231b84d5-19ec-43b8-94f8-4296caaab72f",
+      "memory_mb": 4096,
+      "name": "ITS-VD-T00016",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "43af251a-19ed-402a-95bb-9b91ab1ab403",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 20
+    },
+    {
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": -1,
+      "memory_mb": 16384,
+      "name": "BACKUP-ITS-PROD-GR2-T3-Catia-R28",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 4,
+      "power_state": "off",
+      "timezone": "Europe/Zurich",
+      "uuid": "40036d7d-77d1-46d8-9eff-6d1ae6d81aa8",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "device_id": 47,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA"
+        }
+      ],
+      "vm_logical_timestamp": 2
+    },
+    {
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "description": "Win 10 1709 Liquidware Optimized",
+      "ha_priority": 0,
+      "host_uuid": "7073a498-8251-4314-b0d5-233e0d5f453d",
+      "memory_mb": 8192,
+      "name": "2018-10_FlexApp_PC1",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "UTC",
+      "uuid": "41c9d456-6c91-4327-850c-1b76fa2d9e32",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 6
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "7073a498-8251-4314-b0d5-233e0d5f453d",
+          "cb46686c-ba07-4f20-938b-8c463180208d"
+        ]
+      },
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "cb46686c-ba07-4f20-938b-8c463180208d",
+      "memory_mb": 8000,
+      "name": "ITS-VD-T10128",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 4,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "426a792f-1328-45c7-9f4a-10173d09984b",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 35,
+          "device_name": "GRID_M10-0B",
+          "fraction": 16,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-PC,2.0",
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:06:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 51
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "7073a498-8251-4314-b0d5-233e0d5f453d",
+          "cb46686c-ba07-4f20-938b-8c463180208d"
+        ]
+      },
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "cb46686c-ba07-4f20-938b-8c463180208d",
+      "memory_mb": 8000,
+      "name": "ITS-VD-T10129",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 4,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "493df700-54fa-42df-b112-83d1cb8e38ec",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 35,
+          "device_name": "GRID_M10-0B",
+          "fraction": 16,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-PC,2.0",
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:05:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 45
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": -1,
+      "memory_mb": 16384,
+      "name": "ITS-PROD-GR2",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 4,
+      "power_state": "off",
+      "timezone": "Europe/Zurich",
+      "uuid": "52aa13f6-885b-458f-bb8d-b85a75b034f8",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "device_id": 47,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA"
+        }
+      ],
+      "vm_logical_timestamp": 182
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "7073a498-8251-4314-b0d5-233e0d5f453d",
+          "cb46686c-ba07-4f20-938b-8c463180208d"
+        ]
+      },
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "cb46686c-ba07-4f20-938b-8c463180208d",
+      "memory_mb": 8000,
+      "name": "ITS-VD-T10141",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 4,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "533c1bc7-64c1-472c-8548-18116512b3ef",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 35,
+          "device_name": "GRID_M10-0B",
+          "fraction": 16,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-PC,2.0",
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:05:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 13
+    },
+    {
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "host_uuid": "7073a498-8251-4314-b0d5-233e0d5f453d",
+      "memory_mb": 8000,
+      "name": "ITS-VD-T00022",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "574b7a75-ef6e-4280-9e5a-88a78c418388",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 48
+    },
+    {
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "host_uuid": "7073a498-8251-4314-b0d5-233e0d5f453d",
+      "memory_mb": 8000,
+      "name": "ITS-VD-T00020",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "543b4c29-09ee-4b44-b366-78dc724cbb8b",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 52
+    },
+    {
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "host_uuid": "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+      "memory_mb": 8000,
+      "name": "ITS-VD-T00023",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "54e1ced6-dc58-4773-a3e8-c94e14dc7860",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 55
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "host_uuid": "54ebf536-3824-468c-8c38-85a72882afb5",
+      "memory_mb": 4096,
+      "name": "ITS-VD-T00014",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "55817ac4-6e06-482f-8dc2-8355cc1e9afa",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 11
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "7073a498-8251-4314-b0d5-233e0d5f453d",
+          "cb46686c-ba07-4f20-938b-8c463180208d"
+        ]
+      },
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "cb46686c-ba07-4f20-938b-8c463180208d",
+      "memory_mb": 8000,
+      "name": "ITS-VD-T10138",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 4,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "5588094f-f196-4ca8-b3b9-f289a48e70d8",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 35,
+          "device_name": "GRID_M10-0B",
+          "fraction": 16,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-PC,2.0",
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:05:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 43
+    },
+    {
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+      "memory_mb": 16000,
+      "name": "ITS-VD-T30011",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "56c6d2a3-8537-417d-9b1a-2b3645438f65",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 47,
+          "device_name": "GRID_P40-2Q",
+          "fraction": 12,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:03:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 3
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "host_uuid": "231b84d5-19ec-43b8-94f8-4296caaab72f",
+      "memory_mb": 4096,
+      "name": "ITS-VD-T00024",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "5c1874be-98b2-494a-960a-c25534df063d",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 5
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "7073a498-8251-4314-b0d5-233e0d5f453d",
+          "cb46686c-ba07-4f20-938b-8c463180208d"
+        ]
+      },
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "cb46686c-ba07-4f20-938b-8c463180208d",
+      "memory_mb": 8000,
+      "name": "ITS-VD-T10124",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 4,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "6b77edac-53b7-4a8f-be65-6432632dd3ac",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 35,
+          "device_name": "GRID_M10-0B",
+          "fraction": 16,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-PC,2.0",
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:05:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 131
+    },
+    {
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "host_uuid": "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+      "memory_mb": 8000,
+      "name": "ITS-VD-T00019",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "6bc072b3-7eb0-4c58-905f-ac91aaf1ec23",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 53
+    },
+    {
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "host_uuid": "7073a498-8251-4314-b0d5-233e0d5f453d",
+      "memory_mb": 4096,
+      "name": "ubuntu1604-2018-10.22",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "UTC",
+      "uuid": "68be8142-09c8-4463-9051-4352b2ecfb26",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 40
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "host_uuid": "231b84d5-19ec-43b8-94f8-4296caaab72f",
+      "memory_mb": 4096,
+      "name": "ITS-VD-T00006",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "69291079-0b2e-4947-abe2-04f3a51dacd3",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 36
+    },
+    {
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "54ebf536-3824-468c-8c38-85a72882afb5",
+      "memory_mb": 16000,
+      "name": "ITS-VD-T30032",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "6f75c040-69fe-438d-b7cb-487acad3f122",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 47,
+          "device_name": "GRID_P40-2Q",
+          "fraction": 12,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 1,
+          "sbdf": "0000:82:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 9
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "host_uuid": "231b84d5-19ec-43b8-94f8-4296caaab72f",
+      "memory_mb": 4096,
+      "name": "ITS-VD-T00009",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "73d0df66-9058-4327-a3ba-6c36cd467300",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 20
+    },
+    {
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "54ebf536-3824-468c-8c38-85a72882afb5",
+      "memory_mb": 16000,
+      "name": "ITS-VD-T30029",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "74b6ea14-298a-49cd-bbd7-d7d7033f8f2f",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 47,
+          "device_name": "GRID_P40-2Q",
+          "fraction": 12,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 1,
+          "sbdf": "0000:82:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 9
+    },
+    {
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "54ebf536-3824-468c-8c38-85a72882afb5",
+      "memory_mb": 16000,
+      "name": "ITS-VD-T30031",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "768c8d1f-4c54-43cb-b752-0db47394cc5a",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 47,
+          "device_name": "GRID_P40-2Q",
+          "fraction": 12,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 1,
+          "sbdf": "0000:82:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 3
+    },
+    {
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+      "memory_mb": 16000,
+      "name": "ITS-VD-T30009",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "7713a834-2fe8-48bd-9ed3-859cc026e05f",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 47,
+          "device_name": "GRID_P40-2Q",
+          "fraction": 12,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:03:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 32
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "host_uuid": "231b84d5-19ec-43b8-94f8-4296caaab72f",
+      "memory_mb": 4096,
+      "name": "ITS-VD-T00012",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "793f65d5-78ef-472f-ad34-3d7f94e0f941",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 33
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+      "memory_mb": 16000,
+      "name": "BRE-VD-T30010",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "7a30bc37-71c9-40bd-a854-132818a64fed",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 47,
+          "device_name": "GRID_P40-2Q",
+          "fraction": 12,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:03:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 7
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "54ebf536-3824-468c-8c38-85a72882afb5",
+      "memory_mb": 12000,
+      "name": "ITS-VD-T20021",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "7c07cb8b-e1e4-4aca-b2bd-a6e1ec583683",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 46,
+          "device_name": "GRID_P40-1Q",
+          "fraction": 24,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:03:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 65
+    },
+    {
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "54ebf536-3824-468c-8c38-85a72882afb5",
+      "memory_mb": 16000,
+      "name": "ITS-VD-T30030",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "822e0f01-b137-47ef-8081-c24e98c1ba33",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 47,
+          "device_name": "GRID_P40-2Q",
+          "fraction": 12,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 1,
+          "sbdf": "0000:82:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 3
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+      "memory_mb": 16000,
+      "name": "ITS-VD-T30015",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "8b810f8f-ea09-4765-aeae-86b708129333",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 47,
+          "device_name": "GRID_P40-2Q",
+          "fraction": 12,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:03:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 62
+    },
+    {
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+      "memory_mb": 16000,
+      "name": "ITS-VD-T30008",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "8bd3b96c-e249-4c12-81ea-6fdcc315f45e",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 47,
+          "device_name": "GRID_P40-2Q",
+          "fraction": 12,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:03:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 6
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "host_uuid": "231b84d5-19ec-43b8-94f8-4296caaab72f",
+      "memory_mb": 4096,
+      "name": "ITS-VD-T00001",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "8a904779-d588-4dee-a223-2c468e06b3cb",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 47
+    },
+    {
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": -1,
+      "memory_mb": 8192,
+      "name": "ITS-PROD-GR3",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 2,
+      "power_state": "off",
+      "timezone": "Europe/Zurich",
+      "uuid": "8ae202d6-3f33-4140-a964-0186b65edea1",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "device_id": 36,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA"
+        }
+      ],
+      "vm_logical_timestamp": 29
+    },
+    {
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+      "memory_mb": 16000,
+      "name": "ITS-VD-T30027",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "8b3f76bc-fabd-4bbe-8471-5ed04599dfa8",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 47,
+          "device_name": "GRID_P40-2Q",
+          "fraction": 12,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:03:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 3
+    },
+    {
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "54ebf536-3824-468c-8c38-85a72882afb5",
+      "memory_mb": 16000,
+      "name": "ITS-VD-T30004",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "8ff2e37d-6d8c-4e5c-b511-cdc0af0e0c29",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 47,
+          "device_name": "GRID_P40-2Q",
+          "fraction": 12,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 1,
+          "sbdf": "0000:82:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 21
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "host_uuid": "54ebf536-3824-468c-8c38-85a72882afb5",
+      "memory_mb": 4096,
+      "name": "ITS-VD-T00013",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "8cb61790-fc5c-44a9-b4e4-f823e23b75a5",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 14
+    },
+    {
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "boot": {
+        "disk_address": {
+          "device_bus": "scsi",
+          "device_index": 0
+        },
+        "boot_device_type": "disk"
+      },
+      "description": "Dedicated to Laurent L'Ep\u00e9e",
+      "ha_priority": 0,
+      "host_uuid": "7073a498-8251-4314-b0d5-233e0d5f453d",
+      "memory_mb": 8192,
+      "name": "its-vd-lep01",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "94de6861-ac79-4e91-b275-aa21bb60ff8c",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 13
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "7073a498-8251-4314-b0d5-233e0d5f453d",
+          "cb46686c-ba07-4f20-938b-8c463180208d"
+        ]
+      },
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "cb46686c-ba07-4f20-938b-8c463180208d",
+      "memory_mb": 8192,
+      "name": "ITS-VD-T000001",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "954f17fb-c794-4cdb-aac9-4c9e08b94fa7",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 35,
+          "device_name": "GRID_M10-0B",
+          "fraction": 16,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-PC,2.0",
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:05:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 12
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "host_uuid": "231b84d5-19ec-43b8-94f8-4296caaab72f",
+      "memory_mb": 4096,
+      "name": "ITS-VD-T00007",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "9950d6b1-ab7d-4ef4-afa6-9efb447f01d9",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 40
+    },
+    {
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "54ebf536-3824-468c-8c38-85a72882afb5",
+      "memory_mb": 16000,
+      "name": "ITS-VD-T30013",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "9c9e75b0-21ad-457a-8c89-fcb738b1e9d3",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 47,
+          "device_name": "GRID_P40-2Q",
+          "fraction": 12,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 1,
+          "sbdf": "0000:82:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 3
+    },
+    {
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "host_uuid": "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+      "memory_mb": 8000,
+      "name": "ITS-VD-T00021",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "9cebe5e3-598a-41de-bca3-0a66e1550e03",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 66
+    },
+    {
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "memory_mb": 8192,
+      "name": "BACKUP-ITS-PROD-GR2-20181028",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 2,
+      "power_state": "off",
+      "timezone": "Europe/Zurich",
+      "uuid": "9f0744ea-08ca-4b86-9ba5-3e804c591491",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 1
+    },
+    {
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+      "memory_mb": 16000,
+      "name": "ITS-VD-T30010",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "a045de04-6d22-4956-96e8-f5b1a83be630",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 47,
+          "device_name": "GRID_P40-2Q",
+          "fraction": 12,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:03:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 3
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "7073a498-8251-4314-b0d5-233e0d5f453d",
+          "cb46686c-ba07-4f20-938b-8c463180208d"
+        ]
+      },
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "cb46686c-ba07-4f20-938b-8c463180208d",
+      "memory_mb": 8000,
+      "name": "ITS-VD-T10123",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 4,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "a1cabcd8-da06-4d74-bee1-33f108050ff0",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 35,
+          "device_name": "GRID_M10-0B",
+          "fraction": 16,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-PC,2.0",
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:06:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 95
+    },
+    {
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "54ebf536-3824-468c-8c38-85a72882afb5",
+      "memory_mb": 16000,
+      "name": "ITS-VD-T30007",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "a2dfa2d5-ea90-4b2e-81d2-a78b7037e359",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 47,
+          "device_name": "GRID_P40-2Q",
+          "fraction": 12,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 1,
+          "sbdf": "0000:82:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 7
+    },
+    {
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "description": "Win 10 1709 Liquidware Optimized",
+      "ha_priority": 0,
+      "host_uuid": "7073a498-8251-4314-b0d5-233e0d5f453d",
+      "memory_mb": 8192,
+      "name": "2018-10 FlexApp PCVDA",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "UTC",
+      "uuid": "a953043e-7fbe-4781-8813-2b80977e5607",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 4
+    },
+    {
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "host_uuid": "7073a498-8251-4314-b0d5-233e0d5f453d",
+      "memory_mb": 8192,
+      "name": "2018-11 test 1803",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "UTC",
+      "uuid": "ae4b28cf-9646-4c4a-8bb9-83b47b5d385b",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 7
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "7073a498-8251-4314-b0d5-233e0d5f453d",
+          "cb46686c-ba07-4f20-938b-8c463180208d"
+        ]
+      },
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "cb46686c-ba07-4f20-938b-8c463180208d",
+      "memory_mb": 8000,
+      "name": "ITS-VD-T10131",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 4,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "b0b44a7a-7c53-4d50-b7e2-627c46b16625",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 35,
+          "device_name": "GRID_M10-0B",
+          "fraction": 16,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-PC,2.0",
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:05:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 35
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "54ebf536-3824-468c-8c38-85a72882afb5",
+      "memory_mb": 12000,
+      "name": "ITS-VD-T20019",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "b6abfbac-d9e0-4bed-a293-67fea7dc2d2b",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 46,
+          "device_name": "GRID_P40-1Q",
+          "fraction": 24,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:03:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 51
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "7073a498-8251-4314-b0d5-233e0d5f453d",
+          "cb46686c-ba07-4f20-938b-8c463180208d"
+        ]
+      },
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "cb46686c-ba07-4f20-938b-8c463180208d",
+      "memory_mb": 8000,
+      "name": "ITS-VD-T10126",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 4,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "b8946fe2-0d1a-418c-b067-b2437247bc57",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 35,
+          "device_name": "GRID_M10-0B",
+          "fraction": 16,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-PC,2.0",
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:05:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 127
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": -1,
+      "memory_mb": 8192,
+      "name": "ITS-VD-T30002",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "off",
+      "timezone": "Europe/Zurich",
+      "uuid": "bc72cdea-1574-40e2-82a7-cf8e1abd5f53",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "device_id": 47,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA"
+        }
+      ],
+      "vm_logical_timestamp": 32
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "7073a498-8251-4314-b0d5-233e0d5f453d",
+          "cb46686c-ba07-4f20-938b-8c463180208d"
+        ]
+      },
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "cb46686c-ba07-4f20-938b-8c463180208d",
+      "memory_mb": 8000,
+      "name": "ITS-VD-T10127",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 4,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "bc76c57c-5e80-45ea-940b-66609e7c69a6",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 35,
+          "device_name": "GRID_M10-0B",
+          "fraction": 16,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-PC,2.0",
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:05:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 121
+    },
+    {
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+      "memory_mb": 16000,
+      "name": "ITS-VD-T30005",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "c7fab141-8466-4d33-84f9-4dd45b144b06",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 47,
+          "device_name": "GRID_P40-2Q",
+          "fraction": 12,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:03:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 9
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": false,
+      "gpus_assigned": true,
+      "guest_driver_version": "391.81",
+      "ha_priority": -1,
+      "host_uuid": "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+      "memory_mb": 16000,
+      "name": "ITS-VD-T30026",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "c72c4216-2a5c-44c1-91fb-e7da90803f44",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_gpus": [
+        {
+          "assignable": false,
+          "device_id": 47,
+          "device_name": "GRID_P40-2Q",
+          "fraction": 12,
+          "gpu_type": "VIRTUAL",
+          "gpu_vendor": "NVIDIA",
+          "in_use": true,
+          "licenses": [
+            "GRID-Virtual-WS,2.0",
+            "Quadro-Virtual-DWS,5.0",
+            "GRID-Virtual-WS-Ext,2.0"
+          ],
+          "numa_node": 0,
+          "sbdf": "0000:03:00.0"
+        }
+      ],
+      "vm_logical_timestamp": 52
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "host_uuid": "231b84d5-19ec-43b8-94f8-4296caaab72f",
+      "memory_mb": 4096,
+      "name": "ITS-VD-T00010",
+      "num_cores_per_vcpu": 2,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "ceb3042c-5dcf-486f-81ee-d86a158f9b28",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 24
+    },
+    {
+      "affinity": {
+        "policy": "AFFINITY",
+        "host_uuids": [
+          "1ca6c3b2-949c-427f-8e21-f1e17f9ca5c1",
+          "54ebf536-3824-468c-8c38-85a72882afb5",
+          "231b84d5-19ec-43b8-94f8-4296caaab72f"
+        ]
+      },
+      "allow_live_migrate": true,
+      "gpus_assigned": false,
+      "ha_priority": 0,
+      "host_uuid": "231b84d5-19ec-43b8-94f8-4296caaab72f",
+      "memory_mb": 4096,
+      "name": "ITS-VD-T00018",
+      "num_cores_per_vcpu": 1,
+      "num_vcpus": 2,
+      "power_state": "on",
+      "timezone": "Europe/Zurich",
+      "uuid": "cf10472c-9a6d-41d9-90dd-cda8b72b039c",
+      "vm_features": {
+        "AGENT_VM": false,
+        "VGA_CONSOLE": true
+      },
+      "vm_logical_timestamp": 8
+    }
+  ]
+}

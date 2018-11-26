@@ -1,0 +1,3197 @@
+{
+  "api_version": "3.1",
+  "metadata": {
+    "total_matches": 14,
+    "kind": "cluster"
+  },
+  "entities": [
+    {
+      "status": {
+        "state": "COMPLETE",
+        "name": "NTXCHBI015",
+        "resources": {
+          "nodes": {
+            "hypervisor_server_list": [
+              {
+                "ip": "10.236.36.120",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              },
+              {
+                "ip": "10.236.36.122",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              },
+              {
+                "ip": "10.236.36.116",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              },
+              {
+                "ip": "10.236.36.118",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              }
+            ]
+          },
+          "config": {
+            "ssl_key": {
+              "key_type": "RSA_2048",
+              "expire_datetime": "2020-02-21T06:26:18Z",
+              "signing_info": {
+                "city": "Biel",
+                "state": "BE",
+                "country_code": "CH",
+                "common_name": "gdc03255.swatchgroup.net\n",
+                "organization": "SwatchGroup",
+                "email_address": ""
+              }
+            },
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.6.2",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.5.5",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "service_list": [
+              "AOS"
+            ],
+            "supported_information_verbosity": "BASIC_PLUS_CORE_DUMP",
+            "redundancy_factor": 2,
+            "operation_mode": "NORMAL",
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED"
+            ],
+            "is_available": true,
+            "build": {
+              "commit_id": "cf1a00826ec08b0e2123989d8d2ca858ac980cb7",
+              "full_version": "el7.3-release-euphrates-5.5.5-stable-cf1a00826ec08b0e2123989d8d2ca858ac980cb7",
+              "version": "5.5.5",
+              "short_commit_id": "cf1a00",
+              "build_type": "release"
+            },
+            "timezone": "Europe/Zurich",
+            "cluster_arch": "X86_64",
+            "management_server_list": [
+              {
+                "drs_enabled": true,
+                "ip": "10.252.38.11",
+                "type": "VCENTER",
+                "status_list": [
+                  "REGISTERED",
+                  "IN_USE"
+                ]
+              }
+            ]
+          },
+          "network": {
+            "smtp_server": {
+              "type": "PLAIN",
+              "email_address": "nutanix_prism_element@swatchgroup.com",
+              "server": {
+                "address": {
+                  "fqdn": "smtp.swatchgroup.net",
+                  "port": 25
+                }
+              }
+            },
+            "external_ip": "10.236.36.124",
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "fqdn": "its-ch-webproxy.swatchgroup.net",
+                  "port": 8084
+                }
+              }
+            ],
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "nfs_subnet_whitelist": [
+              "192.168.5.253/255.255.255.0"
+            ],
+            "external_subnet": "10.236.36.0/255.255.254.0",
+            "external_data_services_ip": "10.236.36.125",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target_type": "IPV4_ADDRESS",
+                "target": "10.252.38.10"
+              }
+            ],
+            "internal_subnet": "192.168.5.0/255.255.255.128"
+          },
+          "analysis": {
+            "vm_efficiency_map": {
+              "dead_vm_num": "0",
+              "bully_vm_num": "0",
+              "overprovisioned_vm_num": "0",
+              "inefficient_vm_num": "0",
+              "constrained_vm_num": "0"
+            }
+          }
+        }
+      },
+      "spec": {
+        "name": "NTXCHBI015",
+        "resources": {
+          "config": {
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.6.2",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.5.5",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "supported_information_verbosity": "BASIC_PLUS_CORE_DUMP",
+            "redundancy_factor": 2,
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED"
+            ],
+            "timezone": "Europe/Zurich",
+            "operation_mode": "NORMAL"
+          },
+          "network": {
+            "external_ip": "10.236.36.124",
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "port": 8084,
+                  "fqdn": "its-ch-webproxy.swatchgroup.net"
+                }
+              }
+            ],
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "smtp_server": {
+              "email_address": "nutanix_prism_element@swatchgroup.com",
+              "type": "PLAIN",
+              "server": {
+                "address": {
+                  "port": 25,
+                  "fqdn": "smtp.swatchgroup.net"
+                }
+              }
+            },
+            "external_subnet": "10.236.36.0/255.255.254.0",
+            "nfs_subnet_whitelist": [
+              "192.168.5.253/255.255.255.0"
+            ],
+            "external_data_services_ip": "10.236.36.125",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target": "10.252.38.10",
+                "target_type": "IPV4_ADDRESS"
+              }
+            ],
+            "internal_subnet": "192.168.5.0/255.255.255.128"
+          }
+        }
+      },
+      "metadata": {
+        "kind": "cluster",
+        "spec_version": 0,
+        "uuid": "00057351-87a0-4781-0000-00000001c5b8",
+        "categories": {}
+      }
+    },
+    {
+      "status": {
+        "state": "COMPLETE",
+        "name": "NTXCHGR012",
+        "resources": {
+          "nodes": {
+            "hypervisor_server_list": [
+              {
+                "ip": "10.236.36.76",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              },
+              {
+                "ip": "10.236.36.72",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              },
+              {
+                "ip": "10.236.36.64",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              },
+              {
+                "ip": "10.236.36.68",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              },
+              {
+                "ip": "10.236.36.80",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              }
+            ]
+          },
+          "config": {
+            "ssl_key": {
+              "key_type": "RSA_2048",
+              "expire_datetime": "2020-02-21T06:26:18Z",
+              "signing_info": {
+                "city": "Biel",
+                "state": "BE",
+                "country_code": "CH",
+                "common_name": "gdc03255.swatchgroup.net\n",
+                "organization": "SwatchGroup",
+                "email_address": ""
+              }
+            },
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.6.2",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.5.5",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "service_list": [
+              "AOS"
+            ],
+            "supported_information_verbosity": "BASIC_PLUS_CORE_DUMP",
+            "redundancy_factor": 2,
+            "operation_mode": "NORMAL",
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED"
+            ],
+            "build": {
+              "commit_id": "cf1a00826ec08b0e2123989d8d2ca858ac980cb7",
+              "full_version": "el7.3-release-euphrates-5.5.5-stable-cf1a00826ec08b0e2123989d8d2ca858ac980cb7",
+              "version": "5.5.5",
+              "short_commit_id": "cf1a00",
+              "build_type": "release"
+            },
+            "timezone": "Europe/Zurich",
+            "cluster_arch": "X86_64",
+            "management_server_list": [
+              {
+                "drs_enabled": true,
+                "ip": "10.252.38.11",
+                "type": "VCENTER",
+                "status_list": [
+                  "REGISTERED",
+                  "IN_USE"
+                ]
+              }
+            ]
+          },
+          "network": {
+            "external_ip": "10.236.36.84",
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "fqdn": "its-ch-webproxy.swatchgroup.net",
+                  "port": 8084
+                }
+              }
+            ],
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "smtp_server": {
+              "type": "PLAIN",
+              "email_address": "nutanix_prism_element@swatchgroup.com",
+              "server": {
+                "address": {
+                  "fqdn": "smtp.swatchgroup.net",
+                  "port": 25
+                }
+              }
+            },
+            "external_subnet": "10.236.36.0/255.255.254.0",
+            "external_data_services_ip": "10.236.36.85",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target_type": "IPV4_ADDRESS",
+                "target": "10.252.38.10"
+              }
+            ],
+            "internal_subnet": "192.168.5.0/255.255.255.128"
+          },
+          "analysis": {
+            "vm_efficiency_map": {
+              "dead_vm_num": "2",
+              "bully_vm_num": "0",
+              "overprovisioned_vm_num": "10",
+              "inefficient_vm_num": "12",
+              "constrained_vm_num": "0"
+            }
+          }
+        }
+      },
+      "spec": {
+        "name": "NTXCHGR012",
+        "resources": {
+          "config": {
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.6.2",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.5.5",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "supported_information_verbosity": "BASIC_PLUS_CORE_DUMP",
+            "redundancy_factor": 2,
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED"
+            ],
+            "timezone": "Europe/Zurich",
+            "operation_mode": "NORMAL"
+          },
+          "network": {
+            "external_ip": "10.236.36.84",
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "port": 8084,
+                  "fqdn": "its-ch-webproxy.swatchgroup.net"
+                }
+              }
+            ],
+            "smtp_server": {
+              "email_address": "nutanix_prism_element@swatchgroup.com",
+              "type": "PLAIN",
+              "server": {
+                "address": {
+                  "port": 25,
+                  "fqdn": "smtp.swatchgroup.net"
+                }
+              }
+            },
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "external_subnet": "10.236.36.0/255.255.254.0",
+            "external_data_services_ip": "10.236.36.85",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target": "10.252.38.10",
+                "target_type": "IPV4_ADDRESS"
+              }
+            ],
+            "internal_subnet": "192.168.5.0/255.255.255.128"
+          }
+        }
+      },
+      "metadata": {
+        "kind": "cluster",
+        "spec_version": 0,
+        "uuid": "00056aad-674c-94e6-0000-00000001a896",
+        "categories": {}
+      }
+    },
+    {
+      "status": {
+        "state": "COMPLETE",
+        "name": "NTXCHGR016",
+        "resources": {
+          "nodes": {
+            "hypervisor_server_list": [
+              {
+                "ip": "10.236.36.130",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              },
+              {
+                "ip": "10.236.36.132",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              },
+              {
+                "ip": "10.236.36.128",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              },
+              {
+                "ip": "10.236.36.126",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              }
+            ]
+          },
+          "config": {
+            "ssl_key": {
+              "key_type": "RSA_2048",
+              "expire_datetime": "2020-02-21T06:26:18Z",
+              "signing_info": {
+                "city": "Biel",
+                "state": "BE",
+                "country_code": "CH",
+                "common_name": "gdc03255.swatchgroup.net\n",
+                "organization": "SwatchGroup",
+                "email_address": ""
+              }
+            },
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.6.2",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.5.5",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "service_list": [
+              "AOS"
+            ],
+            "supported_information_verbosity": "BASIC_PLUS_CORE_DUMP",
+            "redundancy_factor": 2,
+            "operation_mode": "NORMAL",
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED"
+            ],
+            "is_available": true,
+            "build": {
+              "commit_id": "cf1a00826ec08b0e2123989d8d2ca858ac980cb7",
+              "full_version": "el7.3-release-euphrates-5.5.5-stable-cf1a00826ec08b0e2123989d8d2ca858ac980cb7",
+              "version": "5.5.5",
+              "short_commit_id": "cf1a00",
+              "build_type": "release"
+            },
+            "timezone": "Europe/Zurich",
+            "cluster_arch": "X86_64",
+            "management_server_list": [
+              {
+                "drs_enabled": true,
+                "ip": "10.252.38.11",
+                "type": "VCENTER",
+                "status_list": [
+                  "REGISTERED",
+                  "IN_USE"
+                ]
+              }
+            ]
+          },
+          "network": {
+            "external_ip": "10.236.36.134",
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "fqdn": "its-ch-webproxy.swatchgroup.net",
+                  "port": 8084
+                }
+              }
+            ],
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "smtp_server": {
+              "type": "PLAIN",
+              "email_address": "nutanix_prism_element@swatchgroup.com",
+              "server": {
+                "address": {
+                  "fqdn": "smtp.swatchgroup.net",
+                  "port": 25
+                }
+              }
+            },
+            "external_subnet": "10.236.36.0/255.255.254.0",
+            "external_data_services_ip": "10.236.36.135",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target_type": "IPV4_ADDRESS",
+                "target": "10.252.38.10"
+              }
+            ],
+            "internal_subnet": "192.168.5.0/255.255.255.128"
+          },
+          "analysis": {
+            "vm_efficiency_map": {
+              "dead_vm_num": "0",
+              "bully_vm_num": "0",
+              "overprovisioned_vm_num": "1",
+              "inefficient_vm_num": "1",
+              "constrained_vm_num": "0"
+            }
+          }
+        }
+      },
+      "spec": {
+        "name": "NTXCHGR016",
+        "resources": {
+          "config": {
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.6.2",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.5.5",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "supported_information_verbosity": "BASIC_PLUS_CORE_DUMP",
+            "redundancy_factor": 2,
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED"
+            ],
+            "timezone": "Europe/Zurich",
+            "operation_mode": "NORMAL"
+          },
+          "network": {
+            "external_ip": "10.236.36.134",
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "port": 8084,
+                  "fqdn": "its-ch-webproxy.swatchgroup.net"
+                }
+              }
+            ],
+            "smtp_server": {
+              "email_address": "nutanix_prism_element@swatchgroup.com",
+              "type": "PLAIN",
+              "server": {
+                "address": {
+                  "port": 25,
+                  "fqdn": "smtp.swatchgroup.net"
+                }
+              }
+            },
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "external_subnet": "10.236.36.0/255.255.254.0",
+            "external_data_services_ip": "10.236.36.135",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target": "10.252.38.10",
+                "target_type": "IPV4_ADDRESS"
+              }
+            ],
+            "internal_subnet": "192.168.5.0/255.255.255.128"
+          }
+        }
+      },
+      "metadata": {
+        "kind": "cluster",
+        "spec_version": 0,
+        "uuid": "0005738d-7ed3-3dd4-0000-00000001c5b6",
+        "categories": {}
+      }
+    },
+    {
+      "status": {
+        "state": "COMPLETE",
+        "name": "NTXCHBI001",
+        "resources": {
+          "nodes": {
+            "hypervisor_server_list": [
+              {
+                "ip": "10.252.36.16",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              },
+              {
+                "ip": "10.252.36.14",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              },
+              {
+                "ip": "10.252.36.12",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              },
+              {
+                "ip": "10.252.36.10",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              }
+            ]
+          },
+          "config": {
+            "ssl_key": {
+              "key_type": "RSA_2048",
+              "expire_datetime": "2020-02-21T06:26:18Z",
+              "signing_info": {
+                "city": "Biel",
+                "state": "BE",
+                "country_code": "CH",
+                "common_name": "gdc03255.swatchgroup.net\n",
+                "organization": "SwatchGroup",
+                "email_address": ""
+              }
+            },
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.6.2",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.5.5",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "service_list": [
+              "AOS"
+            ],
+            "supported_information_verbosity": "BASIC_PLUS_CORE_DUMP",
+            "redundancy_factor": 2,
+            "operation_mode": "NORMAL",
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED"
+            ],
+            "is_available": true,
+            "build": {
+              "commit_id": "cf1a00826ec08b0e2123989d8d2ca858ac980cb7",
+              "full_version": "el7.3-release-euphrates-5.5.5-stable-cf1a00826ec08b0e2123989d8d2ca858ac980cb7",
+              "version": "5.5.5",
+              "short_commit_id": "cf1a00",
+              "build_type": "release"
+            },
+            "timezone": "Europe/Zurich",
+            "cluster_arch": "X86_64",
+            "management_server_list": [
+              {
+                "drs_enabled": true,
+                "ip": "10.252.38.12",
+                "type": "VCENTER",
+                "status_list": [
+                  "REGISTERED",
+                  "IN_USE"
+                ]
+              }
+            ]
+          },
+          "network": {
+            "external_ip": "10.252.36.26",
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "fqdn": "its-ch-webproxy.swatchgroup.net",
+                  "port": 8084
+                }
+              }
+            ],
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "smtp_server": {
+              "type": "PLAIN",
+              "email_address": "nutanix_prism_element@swatchgroup.com",
+              "server": {
+                "address": {
+                  "fqdn": "smtp.swatchgroup.net",
+                  "port": 25
+                }
+              }
+            },
+            "external_subnet": "10.252.36.0/255.255.255.0",
+            "external_data_services_ip": "10.252.36.27",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target_type": "IPV4_ADDRESS",
+                "target": "10.252.38.10"
+              }
+            ],
+            "internal_subnet": "192.168.5.0/255.255.255.128"
+          },
+          "analysis": {
+            "vm_efficiency_map": {
+              "dead_vm_num": "2",
+              "bully_vm_num": "0",
+              "overprovisioned_vm_num": "16",
+              "inefficient_vm_num": "29",
+              "constrained_vm_num": "11"
+            }
+          }
+        }
+      },
+      "spec": {
+        "name": "NTXCHBI001",
+        "resources": {
+          "config": {
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.6.2",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.5.5",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "supported_information_verbosity": "BASIC_PLUS_CORE_DUMP",
+            "redundancy_factor": 2,
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED"
+            ],
+            "timezone": "Europe/Zurich",
+            "operation_mode": "NORMAL"
+          },
+          "network": {
+            "external_ip": "10.252.36.26",
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "port": 8084,
+                  "fqdn": "its-ch-webproxy.swatchgroup.net"
+                }
+              }
+            ],
+            "smtp_server": {
+              "email_address": "nutanix_prism_element@swatchgroup.com",
+              "type": "PLAIN",
+              "server": {
+                "address": {
+                  "port": 25,
+                  "fqdn": "smtp.swatchgroup.net"
+                }
+              }
+            },
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "external_subnet": "10.252.36.0/255.255.255.0",
+            "external_data_services_ip": "10.252.36.27",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target": "10.252.38.10",
+                "target_type": "IPV4_ADDRESS"
+              }
+            ],
+            "internal_subnet": "192.168.5.0/255.255.255.128"
+          }
+        }
+      },
+      "metadata": {
+        "kind": "cluster",
+        "spec_version": 0,
+        "uuid": "00055f46-eb98-119b-50a0-ac1f6b1c8e23",
+        "categories": {}
+      }
+    },
+    {
+      "status": {
+        "state": "COMPLETE",
+        "name": "NTXCHBI005",
+        "resources": {
+          "nodes": {
+            "hypervisor_server_list": [
+              {
+                "ip": "10.138.78.14",
+                "version": "el6.nutanix.20170830.120",
+                "type": "AHV"
+              },
+              {
+                "ip": "127.0.0.1",
+                "version": "",
+                "type": "AHV"
+              },
+              {
+                "ip": "10.138.78.12",
+                "version": "el6.nutanix.20170830.120",
+                "type": "AHV"
+              },
+              {
+                "ip": "10.138.78.10",
+                "version": "el6.nutanix.20170830.120",
+                "type": "AHV"
+              }
+            ]
+          },
+          "config": {
+            "ssl_key": {
+              "key_type": "RSA_2048",
+              "expire_datetime": "2020-02-21T06:26:18Z",
+              "signing_info": {
+                "city": "Biel",
+                "state": "BE",
+                "country_code": "CH",
+                "common_name": "gdc03255.swatchgroup.net\n",
+                "organization": "SwatchGroup",
+                "email_address": ""
+              }
+            },
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.6.2",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.5.2",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "service_list": [
+              "AOS"
+            ],
+            "supported_information_verbosity": "BASIC_PLUS_CORE_DUMP",
+            "redundancy_factor": 2,
+            "operation_mode": "NORMAL",
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED"
+            ],
+            "is_available": true,
+            "build": {
+              "commit_id": "6a19e52b0fc2293b18cf00c5cbc4f675145f1a6a",
+              "full_version": "el7.3-release-euphrates-5.5.2-stable-6a19e52b0fc2293b18cf00c5cbc4f675145f1a6a",
+              "version": "5.5.2",
+              "short_commit_id": "6a19e5",
+              "build_type": "release"
+            },
+            "timezone": "Europe/Zurich",
+            "cluster_arch": "X86_64"
+          },
+          "network": {
+            "external_ip": "10.138.78.16",
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "fqdn": "its-ch-webproxy.swatchgroup.net",
+                  "port": 8084
+                }
+              }
+            ],
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "smtp_server": {
+              "type": "PLAIN",
+              "email_address": "nutanix_prism_element@swatchgroup.com",
+              "server": {
+                "address": {
+                  "fqdn": "smtp.swatchgroup.net",
+                  "port": 25
+                }
+              }
+            },
+            "external_subnet": "10.138.78.0/255.255.255.0",
+            "external_data_services_ip": "10.138.78.17",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target_type": "IPV4_ADDRESS",
+                "target": "10.139.4.206"
+              },
+              {
+                "target_type": "IPV4_ADDRESS",
+                "target": "10.252.38.10"
+              }
+            ],
+            "internal_subnet": "192.168.5.0/255.255.255.128"
+          },
+          "analysis": {
+            "vm_efficiency_map": {
+              "dead_vm_num": "3",
+              "bully_vm_num": "0",
+              "overprovisioned_vm_num": "9",
+              "inefficient_vm_num": "13",
+              "constrained_vm_num": "1"
+            }
+          }
+        }
+      },
+      "spec": {
+        "name": "NTXCHBI005",
+        "resources": {
+          "config": {
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.6.2",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.5.2",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "supported_information_verbosity": "BASIC_PLUS_CORE_DUMP",
+            "redundancy_factor": 2,
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED"
+            ],
+            "timezone": "Europe/Zurich",
+            "operation_mode": "NORMAL"
+          },
+          "network": {
+            "external_ip": "10.138.78.16",
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "port": 8084,
+                  "fqdn": "its-ch-webproxy.swatchgroup.net"
+                }
+              }
+            ],
+            "smtp_server": {
+              "email_address": "nutanix_prism_element@swatchgroup.com",
+              "type": "PLAIN",
+              "server": {
+                "address": {
+                  "port": 25,
+                  "fqdn": "smtp.swatchgroup.net"
+                }
+              }
+            },
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "external_subnet": "10.138.78.0/255.255.255.0",
+            "external_data_services_ip": "10.138.78.17",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target": "10.139.4.206",
+                "target_type": "IPV4_ADDRESS"
+              },
+              {
+                "target": "10.252.38.10",
+                "target_type": "IPV4_ADDRESS"
+              }
+            ],
+            "internal_subnet": "192.168.5.0/255.255.255.128"
+          }
+        }
+      },
+      "metadata": {
+        "kind": "cluster",
+        "spec_version": 0,
+        "uuid": "00056281-9900-f9d2-0000-0000000191a8",
+        "categories": {}
+      }
+    },
+    {
+      "status": {
+        "state": "COMPLETE",
+        "name": "NTXCHBI013",
+        "resources": {
+          "nodes": {
+            "hypervisor_server_list": [
+              {
+                "ip": "10.236.36.100",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              },
+              {
+                "ip": "10.236.36.102",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              },
+              {
+                "ip": "10.236.36.98",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              },
+              {
+                "ip": "10.236.36.96",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              }
+            ]
+          },
+          "config": {
+            "ssl_key": {
+              "key_type": "RSA_2048",
+              "expire_datetime": "2020-02-21T06:26:18Z",
+              "signing_info": {
+                "city": "Biel",
+                "state": "BE",
+                "country_code": "CH",
+                "common_name": "gdc03255.swatchgroup.net\n",
+                "organization": "SwatchGroup",
+                "email_address": ""
+              }
+            },
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.6.2",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.5.5",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "service_list": [
+              "AOS"
+            ],
+            "supported_information_verbosity": "BASIC_PLUS_CORE_DUMP",
+            "redundancy_factor": 2,
+            "operation_mode": "NORMAL",
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED"
+            ],
+            "is_available": true,
+            "build": {
+              "commit_id": "cf1a00826ec08b0e2123989d8d2ca858ac980cb7",
+              "full_version": "el7.3-release-euphrates-5.5.5-stable-cf1a00826ec08b0e2123989d8d2ca858ac980cb7",
+              "version": "5.5.5",
+              "short_commit_id": "cf1a00",
+              "build_type": "release"
+            },
+            "timezone": "Europe/Zurich",
+            "cluster_arch": "X86_64",
+            "management_server_list": [
+              {
+                "drs_enabled": true,
+                "ip": "10.252.38.11",
+                "type": "VCENTER",
+                "status_list": [
+                  "REGISTERED",
+                  "IN_USE"
+                ]
+              }
+            ]
+          },
+          "network": {
+            "external_ip": "10.236.36.104",
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "fqdn": "its-ch-webproxy.swatchgroup.net",
+                  "port": 8084
+                }
+              }
+            ],
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "smtp_server": {
+              "type": "PLAIN",
+              "email_address": "nutanix_prism_element@swatchgroup.com",
+              "server": {
+                "address": {
+                  "fqdn": "smtp.swatchgroup.net",
+                  "port": 25
+                }
+              }
+            },
+            "external_subnet": "10.236.36.0/255.255.254.0",
+            "external_data_services_ip": "10.236.36.105",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target_type": "IPV4_ADDRESS",
+                "target": "10.252.38.10"
+              }
+            ],
+            "internal_subnet": "192.168.5.0/255.255.255.128"
+          },
+          "analysis": {
+            "vm_efficiency_map": {
+              "dead_vm_num": "0",
+              "bully_vm_num": "0",
+              "overprovisioned_vm_num": "0",
+              "inefficient_vm_num": "0",
+              "constrained_vm_num": "0"
+            }
+          }
+        }
+      },
+      "spec": {
+        "name": "NTXCHBI013",
+        "resources": {
+          "config": {
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.6.2",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.5.5",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "supported_information_verbosity": "BASIC_PLUS_CORE_DUMP",
+            "redundancy_factor": 2,
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED"
+            ],
+            "timezone": "Europe/Zurich",
+            "operation_mode": "NORMAL"
+          },
+          "network": {
+            "external_ip": "10.236.36.104",
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "port": 8084,
+                  "fqdn": "its-ch-webproxy.swatchgroup.net"
+                }
+              }
+            ],
+            "smtp_server": {
+              "email_address": "nutanix_prism_element@swatchgroup.com",
+              "type": "PLAIN",
+              "server": {
+                "address": {
+                  "port": 25,
+                  "fqdn": "smtp.swatchgroup.net"
+                }
+              }
+            },
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "external_subnet": "10.236.36.0/255.255.254.0",
+            "external_data_services_ip": "10.236.36.105",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target": "10.252.38.10",
+                "target_type": "IPV4_ADDRESS"
+              }
+            ],
+            "internal_subnet": "192.168.5.0/255.255.255.128"
+          }
+        }
+      },
+      "metadata": {
+        "kind": "cluster",
+        "spec_version": 0,
+        "uuid": "000572fe-0c01-27df-0000-00000001ba4f",
+        "categories": {}
+      }
+    },
+    {
+      "status": {
+        "state": "COMPLETE",
+        "name": "NTXCHBI007",
+        "resources": {
+          "nodes": {
+            "hypervisor_server_list": [
+              {
+                "ip": "10.236.36.30",
+                "version": "el6.nutanix.20170830.157",
+                "type": "AHV"
+              },
+              {
+                "ip": "127.0.0.1",
+                "version": "",
+                "type": "AHV"
+              },
+              {
+                "ip": "10.236.36.26",
+                "version": "el6.nutanix.20170830.157",
+                "type": "AHV"
+              },
+              {
+                "ip": "10.236.36.22",
+                "version": "el6.nutanix.20170830.157",
+                "type": "AHV"
+              },
+              {
+                "ip": "10.236.36.14",
+                "version": "el6.nutanix.20170830.157",
+                "type": "AHV"
+              },
+              {
+                "ip": "10.236.36.18",
+                "version": "el6.nutanix.20170830.157",
+                "type": "AHV"
+              },
+              {
+                "ip": "10.236.36.10",
+                "version": "el6.nutanix.20170830.157",
+                "type": "AHV"
+              }
+            ]
+          },
+          "config": {
+            "ssl_key": {
+              "key_type": "RSA_2048",
+              "expire_datetime": "2020-02-21T06:26:18Z",
+              "signing_info": {
+                "city": "Biel",
+                "state": "BE",
+                "country_code": "CH",
+                "common_name": "gdc03255.swatchgroup.net\n",
+                "organization": "SwatchGroup",
+                "email_address": ""
+              }
+            },
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.6.2",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.5.5",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "service_list": [
+              "AOS"
+            ],
+            "supported_information_verbosity": "BASIC_PLUS_CORE_DUMP",
+            "redundancy_factor": 2,
+            "operation_mode": "NORMAL",
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED",
+              "NETWORK_FLOW_STATS_COLLECTOR_ENABLED"
+            ],
+            "is_available": true,
+            "build": {
+              "commit_id": "cf1a00826ec08b0e2123989d8d2ca858ac980cb7",
+              "full_version": "el7.3-release-euphrates-5.5.5-stable-cf1a00826ec08b0e2123989d8d2ca858ac980cb7",
+              "version": "5.5.5",
+              "short_commit_id": "cf1a00",
+              "build_type": "release"
+            },
+            "timezone": "Europe/Zurich",
+            "cluster_arch": "X86_64"
+          },
+          "network": {
+            "external_ip": "10.236.36.34",
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "fqdn": "its-ch-webproxy.swatchgroup.net",
+                  "port": 8084
+                }
+              }
+            ],
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "smtp_server": {
+              "type": "PLAIN",
+              "email_address": "nutanix_prism_element@swatchgroup.com",
+              "server": {
+                "address": {
+                  "fqdn": "smtp.swatchgroup.net",
+                  "port": 25
+                }
+              }
+            },
+            "external_subnet": "10.236.36.0/255.255.254.0",
+            "external_data_services_ip": "10.236.36.35",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target_type": "IPV4_ADDRESS",
+                "target": "10.252.38.10"
+              }
+            ],
+            "internal_subnet": "192.168.5.0/255.255.255.128"
+          },
+          "analysis": {
+            "vm_efficiency_map": {
+              "dead_vm_num": "0",
+              "bully_vm_num": "0",
+              "overprovisioned_vm_num": "2",
+              "inefficient_vm_num": "8",
+              "constrained_vm_num": "7"
+            }
+          }
+        }
+      },
+      "spec": {
+        "name": "NTXCHBI007",
+        "resources": {
+          "config": {
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.6.2",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.5.5",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "supported_information_verbosity": "BASIC_PLUS_CORE_DUMP",
+            "redundancy_factor": 2,
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED",
+              "NETWORK_FLOW_STATS_COLLECTOR_ENABLED"
+            ],
+            "timezone": "Europe/Zurich",
+            "operation_mode": "NORMAL"
+          },
+          "network": {
+            "external_ip": "10.236.36.34",
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "port": 8084,
+                  "fqdn": "its-ch-webproxy.swatchgroup.net"
+                }
+              }
+            ],
+            "smtp_server": {
+              "email_address": "nutanix_prism_element@swatchgroup.com",
+              "type": "PLAIN",
+              "server": {
+                "address": {
+                  "port": 25,
+                  "fqdn": "smtp.swatchgroup.net"
+                }
+              }
+            },
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "external_subnet": "10.236.36.0/255.255.254.0",
+            "external_data_services_ip": "10.236.36.35",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target": "10.252.38.10",
+                "target_type": "IPV4_ADDRESS"
+              }
+            ],
+            "internal_subnet": "192.168.5.0/255.255.255.128"
+          }
+        }
+      },
+      "metadata": {
+        "kind": "cluster",
+        "spec_version": 0,
+        "uuid": "000567c6-73d5-dc29-42cf-ac1f6b0cb704",
+        "categories": {}
+      }
+    },
+    {
+      "status": {
+        "state": "COMPLETE",
+        "name": "Unnamed",
+        "resources": {
+          "config": {
+            "ssl_key": {
+              "key_type": "RSA_2048",
+              "expire_datetime": "2020-02-21T06:26:18Z",
+              "signing_info": {
+                "city": "Biel",
+                "state": "BE",
+                "country_code": "CH",
+                "common_name": "gdc03255.swatchgroup.net\n",
+                "organization": "SwatchGroup",
+                "email_address": ""
+              }
+            },
+            "authorized_public_key_list": [
+              {
+                "name": "agave",
+                "key": "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAw8NhpiLG/6c8c0LocaQVM6+x8yBvLS+z13nYlqzSKr64HQSH+IIx14bS+uh0xf8ou5ROnbUa44YM9qG2RBK1hBVrwTIKZBwFwOTxDuXH9YoswqflnOeyTGUFerrMxlg5iYvKE01QIErKWt/BJ+hK/qVQi6SHh/WhyjAGNQPxjPBG3oEUFoLV9uDLX9RT/sLIQpBf91DCbF9+2rSToqjydj36d38JbmuGJGqr+DrEd0lKzfiJiQ39t3AXBE1bY2ISX+uwq07XkYZbrHaijrxnOBFZE7ETQmyxdcOvgDxvhnhZpFsUqbPqIqa45CwFWV+btzITvpJkveYjGSGR7ZJNHQ== nutanix@titan"
+              }
+            ],
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.5.3.1",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.8.1",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "service_list": [
+              "PRISM_CENTRAL"
+            ],
+            "redundancy_factor": 1,
+            "operation_mode": "NORMAL",
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED",
+              "SSP_CONFIGURED"
+            ],
+            "is_available": true,
+            "build": {
+              "commit_id": "aedfa93d5ad7135f43097c0a3e3010d8f7c5e8ca",
+              "full_version": "el7.3-release-euphrates-5.8.1-stable-aedfa93d5ad7135f43097c0a3e3010d8f7c5e8ca",
+              "commit_date": "2018-08-02T00:29:56Z",
+              "version": "5.8.1",
+              "short_commit_id": "aedfa9",
+              "build_type": "release"
+            },
+            "timezone": "UTC",
+            "cluster_arch": "X86_64"
+          },
+          "network": {
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "fqdn": "its-ch-webproxy.swatchgroup.net",
+                  "port": 8084
+                }
+              }
+            ],
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "smtp_server": {
+              "type": "PLAIN",
+              "email_address": "prism.central@swatchgroup.com",
+              "server": {
+                "address": {
+                  "fqdn": "smtp.swatchgroup.net",
+                  "port": 25
+                }
+              }
+            },
+            "external_subnet": "10.252.38.0/255.255.255.0",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target_type": "IPV4_ADDRESS",
+                "target": "10.252.36.26"
+              },
+              {
+                "target_type": "IPV4_ADDRESS",
+                "target": "10.138.78.16"
+              },
+              {
+                "target_type": "IPV4_ADDRESS",
+                "target": "10.252.36.28"
+              },
+              {
+                "target_type": "IPV4_ADDRESS",
+                "target": "10.236.36.34"
+              },
+              {
+                "target_type": "IPV4_ADDRESS",
+                "target": "10.236.36.36"
+              },
+              {
+                "target_type": "IPV4_ADDRESS",
+                "target": "10.236.36.82"
+              },
+              {
+                "target_type": "IPV4_ADDRESS",
+                "target": "10.236.36.58"
+              },
+              {
+                "target_type": "IPV4_ADDRESS",
+                "target": "10.236.36.60"
+              },
+              {
+                "target_type": "IPV4_ADDRESS",
+                "target": "10.236.36.124"
+              },
+              {
+                "target_type": "IPV4_ADDRESS",
+                "target": "10.236.36.134"
+              },
+              {
+                "target_type": "IPV4_ADDRESS",
+                "target": "10.236.36.104"
+              },
+              {
+                "target_type": "IPV4_ADDRESS",
+                "target": "10.236.36.114"
+              }
+            ],
+            "internal_subnet": "10.252.38.0/255.255.255.0"
+          },
+          "runtime_status_list": [
+            "SSP_CONFIG_OWNER"
+          ]
+        }
+      },
+      "spec": {
+        "name": "Unnamed",
+        "resources": {
+          "config": {
+            "authorized_public_key_list": [
+              {
+                "name": "agave",
+                "key": "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAw8NhpiLG/6c8c0LocaQVM6+x8yBvLS+z13nYlqzSKr64HQSH+IIx14bS+uh0xf8ou5ROnbUa44YM9qG2RBK1hBVrwTIKZBwFwOTxDuXH9YoswqflnOeyTGUFerrMxlg5iYvKE01QIErKWt/BJ+hK/qVQi6SHh/WhyjAGNQPxjPBG3oEUFoLV9uDLX9RT/sLIQpBf91DCbF9+2rSToqjydj36d38JbmuGJGqr+DrEd0lKzfiJiQ39t3AXBE1bY2ISX+uwq07XkYZbrHaijrxnOBFZE7ETQmyxdcOvgDxvhnhZpFsUqbPqIqa45CwFWV+btzITvpJkveYjGSGR7ZJNHQ== nutanix@titan"
+              }
+            ],
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.5.3.1",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.8.1",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "redundancy_factor": 1,
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED",
+              "SSP_CONFIGURED"
+            ],
+            "timezone": "UTC",
+            "operation_mode": "NORMAL"
+          },
+          "network": {
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "port": 8084,
+                  "fqdn": "its-ch-webproxy.swatchgroup.net"
+                }
+              }
+            ],
+            "smtp_server": {
+              "email_address": "prism.central@swatchgroup.com",
+              "type": "PLAIN",
+              "server": {
+                "address": {
+                  "port": 25,
+                  "fqdn": "smtp.swatchgroup.net"
+                }
+              }
+            },
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "external_subnet": "10.252.38.0/255.255.255.0",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target": "10.252.36.26",
+                "target_type": "IPV4_ADDRESS"
+              },
+              {
+                "target": "10.138.78.16",
+                "target_type": "IPV4_ADDRESS"
+              },
+              {
+                "target": "10.252.36.28",
+                "target_type": "IPV4_ADDRESS"
+              },
+              {
+                "target": "10.236.36.34",
+                "target_type": "IPV4_ADDRESS"
+              },
+              {
+                "target": "10.236.36.36",
+                "target_type": "IPV4_ADDRESS"
+              },
+              {
+                "target": "10.236.36.82",
+                "target_type": "IPV4_ADDRESS"
+              },
+              {
+                "target": "10.236.36.58",
+                "target_type": "IPV4_ADDRESS"
+              },
+              {
+                "target": "10.236.36.60",
+                "target_type": "IPV4_ADDRESS"
+              },
+              {
+                "target": "10.236.36.124",
+                "target_type": "IPV4_ADDRESS"
+              },
+              {
+                "target": "10.236.36.134",
+                "target_type": "IPV4_ADDRESS"
+              },
+              {
+                "target": "10.236.36.104",
+                "target_type": "IPV4_ADDRESS"
+              },
+              {
+                "target": "10.236.36.114",
+                "target_type": "IPV4_ADDRESS"
+              }
+            ],
+            "internal_subnet": "10.252.38.0/255.255.255.0"
+          }
+        }
+      },
+      "metadata": {
+        "kind": "cluster",
+        "spec_version": 0,
+        "uuid": "dab0af49-37a3-4555-9c59-87dcd71b75b4",
+        "categories": {}
+      }
+    },
+    {
+      "status": {
+        "state": "COMPLETE",
+        "name": "NTXCHGR002",
+        "resources": {
+          "nodes": {
+            "hypervisor_server_list": [
+              {
+                "ip": "10.252.36.20",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              },
+              {
+                "ip": "10.252.36.18",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              },
+              {
+                "ip": "10.252.36.22",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              },
+              {
+                "ip": "10.252.36.24",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              }
+            ]
+          },
+          "config": {
+            "ssl_key": {
+              "key_type": "RSA_2048",
+              "expire_datetime": "2020-02-21T06:26:18Z",
+              "signing_info": {
+                "city": "Biel",
+                "state": "BE",
+                "country_code": "CH",
+                "common_name": "gdc03255.swatchgroup.net\n",
+                "organization": "SwatchGroup",
+                "email_address": ""
+              }
+            },
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.6.2",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.5.5",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "service_list": [
+              "AOS"
+            ],
+            "supported_information_verbosity": "BASIC_PLUS_CORE_DUMP",
+            "redundancy_factor": 2,
+            "operation_mode": "NORMAL",
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED"
+            ],
+            "is_available": true,
+            "build": {
+              "commit_id": "cf1a00826ec08b0e2123989d8d2ca858ac980cb7",
+              "full_version": "el7.3-release-euphrates-5.5.5-stable-cf1a00826ec08b0e2123989d8d2ca858ac980cb7",
+              "version": "5.5.5",
+              "short_commit_id": "cf1a00",
+              "build_type": "release"
+            },
+            "timezone": "Europe/Zurich",
+            "cluster_arch": "X86_64",
+            "management_server_list": [
+              {
+                "drs_enabled": true,
+                "ip": "10.252.38.12",
+                "type": "VCENTER",
+                "status_list": [
+                  "REGISTERED",
+                  "IN_USE"
+                ]
+              }
+            ]
+          },
+          "network": {
+            "external_ip": "10.252.36.28",
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "fqdn": "its-ch-webproxy.swatchgroup.net",
+                  "port": 8084
+                }
+              }
+            ],
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "smtp_server": {
+              "type": "PLAIN",
+              "email_address": "nutanix_prism_element@swatchgroup.com",
+              "server": {
+                "address": {
+                  "fqdn": "smtp.swatchgroup.net",
+                  "port": 25
+                }
+              }
+            },
+            "external_subnet": "10.252.36.0/255.255.255.0",
+            "external_data_services_ip": "10.252.36.29",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target_type": "IPV4_ADDRESS",
+                "target": "10.252.38.10"
+              }
+            ],
+            "internal_subnet": "192.168.5.0/255.255.255.128"
+          },
+          "analysis": {
+            "vm_efficiency_map": {
+              "dead_vm_num": "0",
+              "bully_vm_num": "0",
+              "overprovisioned_vm_num": "3",
+              "inefficient_vm_num": "8",
+              "constrained_vm_num": "5"
+            }
+          }
+        }
+      },
+      "spec": {
+        "name": "NTXCHGR002",
+        "resources": {
+          "config": {
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.6.2",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.5.5",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "supported_information_verbosity": "BASIC_PLUS_CORE_DUMP",
+            "redundancy_factor": 2,
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED"
+            ],
+            "timezone": "Europe/Zurich",
+            "operation_mode": "NORMAL"
+          },
+          "network": {
+            "external_ip": "10.252.36.28",
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "port": 8084,
+                  "fqdn": "its-ch-webproxy.swatchgroup.net"
+                }
+              }
+            ],
+            "smtp_server": {
+              "email_address": "nutanix_prism_element@swatchgroup.com",
+              "type": "PLAIN",
+              "server": {
+                "address": {
+                  "port": 25,
+                  "fqdn": "smtp.swatchgroup.net"
+                }
+              }
+            },
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "external_subnet": "10.252.36.0/255.255.255.0",
+            "external_data_services_ip": "10.252.36.29",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target": "10.252.38.10",
+                "target_type": "IPV4_ADDRESS"
+              }
+            ],
+            "internal_subnet": "192.168.5.0/255.255.255.128"
+          }
+        }
+      },
+      "metadata": {
+        "kind": "cluster",
+        "spec_version": 0,
+        "uuid": "000563e6-f74c-878d-77a5-ac1f6b1c8e35",
+        "categories": {}
+      }
+    },
+    {
+      "status": {
+        "state": "COMPLETE",
+        "name": "NTXCHBI011",
+        "resources": {
+          "nodes": {
+            "hypervisor_server_list": [
+              {
+                "ip": "10.236.36.78",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              },
+              {
+                "ip": "10.236.36.70",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              },
+              {
+                "ip": "10.236.36.62",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              },
+              {
+                "ip": "10.236.36.74",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              },
+              {
+                "ip": "10.236.36.66",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              }
+            ]
+          },
+          "config": {
+            "ssl_key": {
+              "key_type": "RSA_2048",
+              "expire_datetime": "2020-02-21T06:26:18Z",
+              "signing_info": {
+                "city": "Biel",
+                "state": "BE",
+                "country_code": "CH",
+                "common_name": "gdc03255.swatchgroup.net\n",
+                "organization": "SwatchGroup",
+                "email_address": ""
+              }
+            },
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.6.2",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.5.5",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "service_list": [
+              "AOS"
+            ],
+            "supported_information_verbosity": "BASIC_PLUS_CORE_DUMP",
+            "redundancy_factor": 2,
+            "operation_mode": "NORMAL",
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED"
+            ],
+            "is_available": true,
+            "build": {
+              "commit_id": "cf1a00826ec08b0e2123989d8d2ca858ac980cb7",
+              "full_version": "el7.3-release-euphrates-5.5.5-stable-cf1a00826ec08b0e2123989d8d2ca858ac980cb7",
+              "version": "5.5.5",
+              "short_commit_id": "cf1a00",
+              "build_type": "release"
+            },
+            "timezone": "Europe/Zurich",
+            "cluster_arch": "X86_64",
+            "management_server_list": [
+              {
+                "drs_enabled": true,
+                "ip": "10.252.38.11",
+                "type": "VCENTER",
+                "status_list": [
+                  "REGISTERED",
+                  "IN_USE"
+                ]
+              }
+            ]
+          },
+          "network": {
+            "external_ip": "10.236.36.82",
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "fqdn": "its-ch-webproxy.swatchgroup.net",
+                  "port": 8084
+                }
+              }
+            ],
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "smtp_server": {
+              "type": "PLAIN",
+              "email_address": "nutanix_prism_element@swatchgroup.com",
+              "server": {
+                "address": {
+                  "fqdn": "smtp.swatchgroup.net",
+                  "port": 25
+                }
+              }
+            },
+            "external_subnet": "10.236.36.0/255.255.254.0",
+            "external_data_services_ip": "10.236.36.83",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target_type": "IPV4_ADDRESS",
+                "target": "10.252.38.10"
+              }
+            ],
+            "internal_subnet": "192.168.5.0/255.255.255.128"
+          },
+          "analysis": {
+            "vm_efficiency_map": {
+              "dead_vm_num": "3",
+              "bully_vm_num": "0",
+              "overprovisioned_vm_num": "9",
+              "inefficient_vm_num": "12",
+              "constrained_vm_num": "0"
+            }
+          }
+        }
+      },
+      "spec": {
+        "name": "NTXCHBI011",
+        "resources": {
+          "config": {
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.6.2",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.5.5",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "supported_information_verbosity": "BASIC_PLUS_CORE_DUMP",
+            "redundancy_factor": 2,
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED"
+            ],
+            "timezone": "Europe/Zurich",
+            "operation_mode": "NORMAL"
+          },
+          "network": {
+            "external_ip": "10.236.36.82",
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "port": 8084,
+                  "fqdn": "its-ch-webproxy.swatchgroup.net"
+                }
+              }
+            ],
+            "smtp_server": {
+              "email_address": "nutanix_prism_element@swatchgroup.com",
+              "type": "PLAIN",
+              "server": {
+                "address": {
+                  "port": 25,
+                  "fqdn": "smtp.swatchgroup.net"
+                }
+              }
+            },
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "external_subnet": "10.236.36.0/255.255.254.0",
+            "external_data_services_ip": "10.236.36.83",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target": "10.252.38.10",
+                "target_type": "IPV4_ADDRESS"
+              }
+            ],
+            "internal_subnet": "192.168.5.0/255.255.255.128"
+          }
+        }
+      },
+      "metadata": {
+        "kind": "cluster",
+        "spec_version": 0,
+        "uuid": "00056aa9-64d3-1af1-0000-00000001a898",
+        "categories": {}
+      }
+    },
+    {
+      "status": {
+        "state": "COMPLETE",
+        "name": "NTXCHBI009",
+        "resources": {
+          "nodes": {
+            "hypervisor_server_list": [
+              {
+                "ip": "10.236.36.46",
+                "version": "el6.nutanix.20170830.157",
+                "type": "AHV"
+              },
+              {
+                "ip": "127.0.0.1",
+                "version": "",
+                "type": "AHV"
+              },
+              {
+                "ip": "10.236.36.38",
+                "version": "el6.nutanix.20170830.157",
+                "type": "AHV"
+              },
+              {
+                "ip": "10.236.36.54",
+                "version": "el6.nutanix.20170830.157",
+                "type": "AHV"
+              },
+              {
+                "ip": "10.236.36.50",
+                "version": "el6.nutanix.20170830.157",
+                "type": "AHV"
+              },
+              {
+                "ip": "10.236.36.42",
+                "version": "el6.nutanix.20170830.157",
+                "type": "AHV"
+              }
+            ]
+          },
+          "config": {
+            "gpu_driver_version": "390.72",
+            "ssl_key": {
+              "key_type": "RSA_2048",
+              "expire_datetime": "2020-02-21T06:26:18Z",
+              "signing_info": {
+                "city": "Biel",
+                "state": "BE",
+                "country_code": "CH",
+                "common_name": "gdc03255.swatchgroup.net\n",
+                "organization": "SwatchGroup",
+                "email_address": ""
+              }
+            },
+            "authorized_public_key_list": [
+              {
+                "name": "eggerf",
+                "key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDGBUKcHxdAfpqDuTxnlbLUtjz4dpxXA0L0wENyZin6H6mEMqxGXOB4cTdCPtPZGIxuMqp4pFJyNGykbi9vhBIvM1sCtn/fEuSfPrcJoLfUnOqEUQYUH+p6AgzkAy5OfXZYtjwblWY9Ng9YDlkz4P0PEKq8hY3I3hfq2+3S+gdLuhylgvH1O5v+Q1f3WUuIFGRP88fJCIsStsoo9mOpzyOBANzzi1d3gi3PagrLuW6Lo32ErlnxCFtxOOwjPBH2TqrHi4pXxbX9G8W/R7IJg9I7itqcXhMzopaEulVc1gx9MpcvRPAznsgqsshJjVfHtMDwsPqL3I9FsbvXalq27/O7 eggerf@sgs-mn011"
+              }
+            ],
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.6.2",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.5.5",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "service_list": [
+              "AOS"
+            ],
+            "supported_information_verbosity": "BASIC_PLUS_CORE_DUMP",
+            "redundancy_factor": 2,
+            "operation_mode": "NORMAL",
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED",
+              "NETWORK_FLOW_STATS_COLLECTOR_ENABLED"
+            ],
+            "is_available": true,
+            "build": {
+              "commit_id": "cf1a00826ec08b0e2123989d8d2ca858ac980cb7",
+              "full_version": "el7.3-release-euphrates-5.5.5-stable-cf1a00826ec08b0e2123989d8d2ca858ac980cb7",
+              "version": "5.5.5",
+              "short_commit_id": "cf1a00",
+              "build_type": "release"
+            },
+            "timezone": "Europe/Zurich",
+            "cluster_arch": "X86_64"
+          },
+          "network": {
+            "smtp_server": {
+              "type": "PLAIN",
+              "email_address": "nutanix_prism_element@swatchgroup.com",
+              "server": {
+                "address": {
+                  "fqdn": "smtp.swatchgroup.net",
+                  "port": 25
+                }
+              }
+            },
+            "external_ip": "10.236.36.58",
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "fqdn": "its-ch-webproxy02.swatchgroup.net",
+                  "port": 8084
+                }
+              }
+            ],
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "nfs_subnet_whitelist": [
+              "10.238.64.14/255.255.252.0"
+            ],
+            "external_subnet": "10.236.36.0/255.255.254.0",
+            "external_data_services_ip": "10.236.36.59",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target_type": "IPV4_ADDRESS",
+                "target": "10.252.38.10"
+              }
+            ],
+            "internal_subnet": "192.168.5.0/255.255.255.128"
+          },
+          "analysis": {
+            "vm_efficiency_map": {
+              "dead_vm_num": "5",
+              "bully_vm_num": "0",
+              "overprovisioned_vm_num": "19",
+              "inefficient_vm_num": "24",
+              "constrained_vm_num": "3"
+            }
+          }
+        }
+      },
+      "spec": {
+        "name": "NTXCHBI009",
+        "resources": {
+          "config": {
+            "gpu_driver_version": "390.72",
+            "authorized_public_key_list": [
+              {
+                "name": "eggerf",
+                "key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDGBUKcHxdAfpqDuTxnlbLUtjz4dpxXA0L0wENyZin6H6mEMqxGXOB4cTdCPtPZGIxuMqp4pFJyNGykbi9vhBIvM1sCtn/fEuSfPrcJoLfUnOqEUQYUH+p6AgzkAy5OfXZYtjwblWY9Ng9YDlkz4P0PEKq8hY3I3hfq2+3S+gdLuhylgvH1O5v+Q1f3WUuIFGRP88fJCIsStsoo9mOpzyOBANzzi1d3gi3PagrLuW6Lo32ErlnxCFtxOOwjPBH2TqrHi4pXxbX9G8W/R7IJg9I7itqcXhMzopaEulVc1gx9MpcvRPAznsgqsshJjVfHtMDwsPqL3I9FsbvXalq27/O7 eggerf@sgs-mn011"
+              }
+            ],
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.6.2",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.5.5",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "supported_information_verbosity": "BASIC_PLUS_CORE_DUMP",
+            "redundancy_factor": 2,
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED",
+              "NETWORK_FLOW_STATS_COLLECTOR_ENABLED"
+            ],
+            "timezone": "Europe/Zurich",
+            "operation_mode": "NORMAL"
+          },
+          "network": {
+            "external_ip": "10.236.36.58",
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "port": 8084,
+                  "fqdn": "its-ch-webproxy02.swatchgroup.net"
+                }
+              }
+            ],
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "smtp_server": {
+              "email_address": "nutanix_prism_element@swatchgroup.com",
+              "type": "PLAIN",
+              "server": {
+                "address": {
+                  "port": 25,
+                  "fqdn": "smtp.swatchgroup.net"
+                }
+              }
+            },
+            "external_subnet": "10.236.36.0/255.255.254.0",
+            "nfs_subnet_whitelist": [
+              "10.238.64.14/255.255.252.0"
+            ],
+            "external_data_services_ip": "10.236.36.59",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target": "10.252.38.10",
+                "target_type": "IPV4_ADDRESS"
+              }
+            ],
+            "internal_subnet": "192.168.5.0/255.255.255.128"
+          }
+        }
+      },
+      "metadata": {
+        "kind": "cluster",
+        "spec_version": 0,
+        "uuid": "00056b95-beab-71f5-0000-0000000198bb",
+        "categories": {}
+      }
+    },
+    {
+      "status": {
+        "state": "COMPLETE",
+        "name": "NTXCHGR008",
+        "resources": {
+          "nodes": {
+            "hypervisor_server_list": [
+              {
+                "ip": "10.236.36.28",
+                "version": "el6.nutanix.20170830.157",
+                "type": "AHV"
+              },
+              {
+                "ip": "127.0.0.1",
+                "version": "",
+                "type": "AHV"
+              },
+              {
+                "ip": "10.236.36.32",
+                "version": "el6.nutanix.20170830.157",
+                "type": "AHV"
+              },
+              {
+                "ip": "10.236.36.24",
+                "version": "el6.nutanix.20170830.157",
+                "type": "AHV"
+              },
+              {
+                "ip": "10.236.36.16",
+                "version": "el6.nutanix.20170830.157",
+                "type": "AHV"
+              },
+              {
+                "ip": "10.236.36.20",
+                "version": "el6.nutanix.20170830.157",
+                "type": "AHV"
+              },
+              {
+                "ip": "10.236.36.12",
+                "version": "el6.nutanix.20170830.157",
+                "type": "AHV"
+              }
+            ]
+          },
+          "config": {
+            "ssl_key": {
+              "key_type": "RSA_2048",
+              "expire_datetime": "2020-02-21T06:26:18Z",
+              "signing_info": {
+                "city": "Biel",
+                "state": "BE",
+                "country_code": "CH",
+                "common_name": "gdc03255.swatchgroup.net\n",
+                "organization": "SwatchGroup",
+                "email_address": ""
+              }
+            },
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.6.2",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.5.5",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "service_list": [
+              "AOS"
+            ],
+            "supported_information_verbosity": "BASIC_PLUS_CORE_DUMP",
+            "redundancy_factor": 2,
+            "operation_mode": "NORMAL",
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED",
+              "NETWORK_FLOW_STATS_COLLECTOR_ENABLED"
+            ],
+            "is_available": true,
+            "build": {
+              "commit_id": "cf1a00826ec08b0e2123989d8d2ca858ac980cb7",
+              "full_version": "el7.3-release-euphrates-5.5.5-stable-cf1a00826ec08b0e2123989d8d2ca858ac980cb7",
+              "version": "5.5.5",
+              "short_commit_id": "cf1a00",
+              "build_type": "release"
+            },
+            "timezone": "Europe/Zurich",
+            "cluster_arch": "X86_64"
+          },
+          "network": {
+            "external_ip": "10.236.36.36",
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "fqdn": "its-ch-webproxy.swatchgroup.net",
+                  "port": 8084
+                }
+              }
+            ],
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "smtp_server": {
+              "type": "PLAIN",
+              "email_address": "nutanix_prism_element@swatchgroup.com",
+              "server": {
+                "address": {
+                  "fqdn": "smtp.swatchgroup.net",
+                  "port": 25
+                }
+              }
+            },
+            "external_subnet": "10.236.36.0/255.255.254.0",
+            "external_data_services_ip": "10.236.36.37",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target_type": "IPV4_ADDRESS",
+                "target": "10.252.38.10"
+              }
+            ],
+            "internal_subnet": "192.168.5.0/255.255.255.128"
+          },
+          "analysis": {
+            "vm_efficiency_map": {
+              "dead_vm_num": "0",
+              "bully_vm_num": "0",
+              "overprovisioned_vm_num": "3",
+              "inefficient_vm_num": "7",
+              "constrained_vm_num": "6"
+            }
+          }
+        }
+      },
+      "spec": {
+        "name": "NTXCHGR008",
+        "resources": {
+          "config": {
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.6.2",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.5.5",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "supported_information_verbosity": "BASIC_PLUS_CORE_DUMP",
+            "redundancy_factor": 2,
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED",
+              "NETWORK_FLOW_STATS_COLLECTOR_ENABLED"
+            ],
+            "timezone": "Europe/Zurich",
+            "operation_mode": "NORMAL"
+          },
+          "network": {
+            "external_ip": "10.236.36.36",
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "port": 8084,
+                  "fqdn": "its-ch-webproxy.swatchgroup.net"
+                }
+              }
+            ],
+            "smtp_server": {
+              "email_address": "nutanix_prism_element@swatchgroup.com",
+              "type": "PLAIN",
+              "server": {
+                "address": {
+                  "port": 25,
+                  "fqdn": "smtp.swatchgroup.net"
+                }
+              }
+            },
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "external_subnet": "10.236.36.0/255.255.254.0",
+            "external_data_services_ip": "10.236.36.37",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target": "10.252.38.10",
+                "target_type": "IPV4_ADDRESS"
+              }
+            ],
+            "internal_subnet": "192.168.5.0/255.255.255.128"
+          }
+        }
+      },
+      "metadata": {
+        "kind": "cluster",
+        "spec_version": 0,
+        "uuid": "0005691a-c950-626b-59e5-ac1f6b0cea22",
+        "categories": {}
+      }
+    },
+    {
+      "status": {
+        "state": "COMPLETE",
+        "name": "NTXCHGR010",
+        "resources": {
+          "nodes": {
+            "hypervisor_server_list": [
+              {
+                "ip": "10.236.36.44",
+                "version": "el6.nutanix.20170830.157",
+                "type": "AHV"
+              },
+              {
+                "ip": "127.0.0.1",
+                "version": "",
+                "type": "AHV"
+              },
+              {
+                "ip": "10.236.36.48",
+                "version": "el6.nutanix.20170830.157",
+                "type": "AHV"
+              },
+              {
+                "ip": "10.236.36.40",
+                "version": "el6.nutanix.20170830.157",
+                "type": "AHV"
+              },
+              {
+                "ip": "10.236.36.52",
+                "version": "el6.nutanix.20170830.157",
+                "type": "AHV"
+              },
+              {
+                "ip": "10.236.36.56",
+                "version": "el6.nutanix.20170830.157",
+                "type": "AHV"
+              }
+            ]
+          },
+          "config": {
+            "gpu_driver_version": "390.72",
+            "ssl_key": {
+              "key_type": "RSA_2048",
+              "expire_datetime": "2020-02-21T06:26:18Z",
+              "signing_info": {
+                "city": "Biel",
+                "state": "BE",
+                "country_code": "CH",
+                "common_name": "gdc03255.swatchgroup.net\n",
+                "organization": "SwatchGroup",
+                "email_address": ""
+              }
+            },
+            "authorized_public_key_list": [
+              {
+                "name": "eggerf",
+                "key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDGBUKcHxdAfpqDuTxnlbLUtjz4dpxXA0L0wENyZin6H6mEMqxGXOB4cTdCPtPZGIxuMqp4pFJyNGykbi9vhBIvM1sCtn/fEuSfPrcJoLfUnOqEUQYUH+p6AgzkAy5OfXZYtjwblWY9Ng9YDlkz4P0PEKq8hY3I3hfq2+3S+gdLuhylgvH1O5v+Q1f3WUuIFGRP88fJCIsStsoo9mOpzyOBANzzi1d3gi3PagrLuW6Lo32ErlnxCFtxOOwjPBH2TqrHi4pXxbX9G8W/R7IJg9I7itqcXhMzopaEulVc1gx9MpcvRPAznsgqsshJjVfHtMDwsPqL3I9FsbvXalq27/O7 eggerf@sgs-mn011"
+              }
+            ],
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.6.2",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.5.5",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "service_list": [
+              "AOS"
+            ],
+            "supported_information_verbosity": "BASIC_PLUS_CORE_DUMP",
+            "redundancy_factor": 2,
+            "operation_mode": "NORMAL",
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED",
+              "NETWORK_FLOW_STATS_COLLECTOR_ENABLED"
+            ],
+            "is_available": true,
+            "build": {
+              "commit_id": "cf1a00826ec08b0e2123989d8d2ca858ac980cb7",
+              "full_version": "el7.3-release-euphrates-5.5.5-stable-cf1a00826ec08b0e2123989d8d2ca858ac980cb7",
+              "version": "5.5.5",
+              "short_commit_id": "cf1a00",
+              "build_type": "release"
+            },
+            "timezone": "Europe/Zurich",
+            "cluster_arch": "X86_64"
+          },
+          "network": {
+            "smtp_server": {
+              "type": "PLAIN",
+              "email_address": "nutanix_prism_element@swatchgroup.com",
+              "server": {
+                "address": {
+                  "fqdn": "smtp.swatchgroup.net",
+                  "port": 25
+                }
+              }
+            },
+            "external_ip": "10.236.36.60",
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "fqdn": "its-ch-webproxy02.swatchgroup.net",
+                  "port": 8084
+                }
+              }
+            ],
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "nfs_subnet_whitelist": [
+              "10.238.64.14/255.255.252.0"
+            ],
+            "external_subnet": "10.236.36.0/255.255.254.0",
+            "external_data_services_ip": "10.236.36.61",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target_type": "IPV4_ADDRESS",
+                "target": "10.252.38.10"
+              }
+            ],
+            "internal_subnet": "192.168.5.0/255.255.255.128"
+          },
+          "analysis": {
+            "vm_efficiency_map": {
+              "dead_vm_num": "0",
+              "bully_vm_num": "0",
+              "overprovisioned_vm_num": "69",
+              "inefficient_vm_num": "74",
+              "constrained_vm_num": "25"
+            }
+          }
+        }
+      },
+      "spec": {
+        "name": "NTXCHGR010",
+        "resources": {
+          "config": {
+            "gpu_driver_version": "390.72",
+            "authorized_public_key_list": [
+              {
+                "name": "eggerf",
+                "key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDGBUKcHxdAfpqDuTxnlbLUtjz4dpxXA0L0wENyZin6H6mEMqxGXOB4cTdCPtPZGIxuMqp4pFJyNGykbi9vhBIvM1sCtn/fEuSfPrcJoLfUnOqEUQYUH+p6AgzkAy5OfXZYtjwblWY9Ng9YDlkz4P0PEKq8hY3I3hfq2+3S+gdLuhylgvH1O5v+Q1f3WUuIFGRP88fJCIsStsoo9mOpzyOBANzzi1d3gi3PagrLuW6Lo32ErlnxCFtxOOwjPBH2TqrHi4pXxbX9G8W/R7IJg9I7itqcXhMzopaEulVc1gx9MpcvRPAznsgqsshJjVfHtMDwsPqL3I9FsbvXalq27/O7 eggerf@sgs-mn011"
+              }
+            ],
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.6.2",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.5.5",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "supported_information_verbosity": "BASIC_PLUS_CORE_DUMP",
+            "redundancy_factor": 2,
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED",
+              "NETWORK_FLOW_STATS_COLLECTOR_ENABLED"
+            ],
+            "timezone": "Europe/Zurich",
+            "operation_mode": "NORMAL"
+          },
+          "network": {
+            "external_ip": "10.236.36.60",
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "port": 8084,
+                  "fqdn": "its-ch-webproxy02.swatchgroup.net"
+                }
+              }
+            ],
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "smtp_server": {
+              "email_address": "nutanix_prism_element@swatchgroup.com",
+              "type": "PLAIN",
+              "server": {
+                "address": {
+                  "port": 25,
+                  "fqdn": "smtp.swatchgroup.net"
+                }
+              }
+            },
+            "external_subnet": "10.236.36.0/255.255.254.0",
+            "nfs_subnet_whitelist": [
+              "10.238.64.14/255.255.252.0"
+            ],
+            "external_data_services_ip": "10.236.36.61",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target": "10.252.38.10",
+                "target_type": "IPV4_ADDRESS"
+              }
+            ],
+            "internal_subnet": "192.168.5.0/255.255.255.128"
+          }
+        }
+      },
+      "metadata": {
+        "kind": "cluster",
+        "spec_version": 0,
+        "uuid": "00056b9d-793e-74ef-0000-0000000198bd",
+        "categories": {}
+      }
+    },
+    {
+      "status": {
+        "state": "COMPLETE",
+        "name": "NTXCHGR014",
+        "resources": {
+          "nodes": {
+            "hypervisor_server_list": [
+              {
+                "ip": "10.236.36.106",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              },
+              {
+                "ip": "10.236.36.108",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              },
+              {
+                "ip": "10.236.36.112",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              },
+              {
+                "ip": "10.236.36.110",
+                "version": "6.0.0-5050593",
+                "type": "VMWARE"
+              }
+            ]
+          },
+          "config": {
+            "ssl_key": {
+              "key_type": "RSA_2048",
+              "expire_datetime": "2020-02-21T06:26:18Z",
+              "signing_info": {
+                "city": "Biel",
+                "state": "BE",
+                "country_code": "CH",
+                "common_name": "gdc03255.swatchgroup.net\n",
+                "organization": "SwatchGroup",
+                "email_address": ""
+              }
+            },
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.6.2",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.5.5",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "service_list": [
+              "AOS"
+            ],
+            "supported_information_verbosity": "BASIC_PLUS_CORE_DUMP",
+            "redundancy_factor": 2,
+            "operation_mode": "NORMAL",
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED"
+            ],
+            "is_available": true,
+            "build": {
+              "commit_id": "cf1a00826ec08b0e2123989d8d2ca858ac980cb7",
+              "full_version": "el7.3-release-euphrates-5.5.5-stable-cf1a00826ec08b0e2123989d8d2ca858ac980cb7",
+              "version": "5.5.5",
+              "short_commit_id": "cf1a00",
+              "build_type": "release"
+            },
+            "timezone": "Europe/Zurich",
+            "cluster_arch": "X86_64",
+            "management_server_list": [
+              {
+                "drs_enabled": true,
+                "ip": "10.252.38.11",
+                "type": "VCENTER",
+                "status_list": [
+                  "REGISTERED",
+                  "IN_USE"
+                ]
+              }
+            ]
+          },
+          "network": {
+            "external_ip": "10.236.36.114",
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "fqdn": "its-ch-webproxy.swatchgroup.net",
+                  "port": 8084
+                }
+              }
+            ],
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "smtp_server": {
+              "type": "PLAIN",
+              "email_address": "nutanix_prism_element@swatchgroup.com",
+              "server": {
+                "address": {
+                  "fqdn": "smtp.swatchgroup.net",
+                  "port": 25
+                }
+              }
+            },
+            "external_subnet": "10.236.36.0/255.255.254.0",
+            "external_data_services_ip": "10.236.36.115",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target_type": "IPV4_ADDRESS",
+                "target": "10.252.38.10"
+              }
+            ],
+            "internal_subnet": "192.168.5.0/255.255.255.128"
+          },
+          "analysis": {
+            "vm_efficiency_map": {
+              "dead_vm_num": "0",
+              "bully_vm_num": "0",
+              "overprovisioned_vm_num": "0",
+              "inefficient_vm_num": "0",
+              "constrained_vm_num": "0"
+            }
+          }
+        }
+      },
+      "spec": {
+        "name": "NTXCHGR014",
+        "resources": {
+          "config": {
+            "software_map": {
+              "NCC": {
+                "status": "INSTALLED",
+                "version": "ncc-3.6.2",
+                "software_type": "NCC"
+              },
+              "NOS": {
+                "status": "INSTALLED",
+                "version": "5.5.5",
+                "software_type": "NOS"
+              }
+            },
+            "encryption_status": "NOT_SUPPORTED",
+            "supported_information_verbosity": "BASIC_PLUS_CORE_DUMP",
+            "redundancy_factor": 2,
+            "enabled_feature_list": [
+              "PASSWORD_REMOTE_LOGIN_ENABLED",
+              "SHADOW_CLONES_ENABLED"
+            ],
+            "timezone": "Europe/Zurich",
+            "operation_mode": "NORMAL"
+          },
+          "network": {
+            "external_ip": "10.236.36.114",
+            "http_proxy_list": [
+              {
+                "proxy_type_list": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "address": {
+                  "port": 8084,
+                  "fqdn": "its-ch-webproxy.swatchgroup.net"
+                }
+              }
+            ],
+            "smtp_server": {
+              "email_address": "nutanix_prism_element@swatchgroup.com",
+              "type": "PLAIN",
+              "server": {
+                "address": {
+                  "port": 25,
+                  "fqdn": "smtp.swatchgroup.net"
+                }
+              }
+            },
+            "ntp_server_ip_list": [
+              "gdc-time1.swatchgroup.net",
+              "gdc-time2.swatchgroup.net",
+              "gdc-time3.swatchgroup.net"
+            ],
+            "external_subnet": "10.236.36.0/255.255.254.0",
+            "external_data_services_ip": "10.236.36.115",
+            "name_server_ip_list": [
+              "10.139.4.10",
+              "10.139.4.11"
+            ],
+            "http_proxy_whitelist": [
+              {
+                "target": "10.252.38.10",
+                "target_type": "IPV4_ADDRESS"
+              }
+            ],
+            "internal_subnet": "192.168.5.0/255.255.255.128"
+          }
+        }
+      },
+      "metadata": {
+        "kind": "cluster",
+        "spec_version": 0,
+        "uuid": "000572ff-8fa4-eede-0000-00000001ba47",
+        "categories": {}
+      }
+    }
+  ]
+}

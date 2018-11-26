@@ -16,7 +16,7 @@ DESCRIPTION = 'Nutanix Class'
 URL = 'https://github.com/franc01s/nutanix'
 EMAIL = 'francois@egger.cloud'
 AUTHOR = 'François Egger'
-VERSION = '0.1.3'
+VERSION = '0.2.0'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
